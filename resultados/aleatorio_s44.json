@@ -1,0 +1,311 @@
+{
+  "metodo": "aleatorio",
+  "semilla": 44,
+  "configuracion": {
+    "distribucion": "generar_aleatorio (igual que la población inicial del AG)"
+  },
+  "evaluaciones": 1000,
+  "grafos_distintos": 975,
+  "primer_hallazgo": {
+    "B1": 69,
+    "U1": 3,
+    "A1": 3
+  },
+  "incidencias": {},
+  "mejor_aptitud": 3015,
+  "mejor_grafo": {
+    "n": 6,
+    "inicio": 0,
+    "meta": 5,
+    "aristas": [
+      [
+        0,
+        1,
+        9
+      ],
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        0,
+        4,
+        9
+      ],
+      [
+        1,
+        0,
+        4
+      ],
+      [
+        1,
+        2,
+        9
+      ],
+      [
+        1,
+        4,
+        9
+      ],
+      [
+        2,
+        0,
+        7
+      ],
+      [
+        2,
+        3,
+        3
+      ],
+      [
+        2,
+        4,
+        7
+      ],
+      [
+        2,
+        5,
+        9
+      ],
+      [
+        3,
+        1,
+        6
+      ],
+      [
+        3,
+        5,
+        4
+      ],
+      [
+        4,
+        3,
+        9
+      ],
+      [
+        5,
+        0,
+        7
+      ],
+      [
+        5,
+        1,
+        3
+      ]
+    ]
+  },
+  "progreso": [
+    {
+      "evaluaciones": 50,
+      "mejor_aptitud_hasta_ahora": 2020,
+      "grafos_distintos": 47,
+      "primer_hallazgo": {
+        "B1": null,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 99,
+      "mejor_aptitud_hasta_ahora": 2020,
+      "grafos_distintos": 96,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 148,
+      "mejor_aptitud_hasta_ahora": 2020,
+      "grafos_distintos": 143,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 197,
+      "mejor_aptitud_hasta_ahora": 2020,
+      "grafos_distintos": 192,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 246,
+      "mejor_aptitud_hasta_ahora": 2020,
+      "grafos_distintos": 240,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 295,
+      "mejor_aptitud_hasta_ahora": 2020,
+      "grafos_distintos": 287,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 344,
+      "mejor_aptitud_hasta_ahora": 2020,
+      "grafos_distintos": 336,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 393,
+      "mejor_aptitud_hasta_ahora": 2020,
+      "grafos_distintos": 384,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 442,
+      "mejor_aptitud_hasta_ahora": 2020,
+      "grafos_distintos": 433,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 491,
+      "mejor_aptitud_hasta_ahora": 2020,
+      "grafos_distintos": 481,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 540,
+      "mejor_aptitud_hasta_ahora": 2020,
+      "grafos_distintos": 529,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 589,
+      "mejor_aptitud_hasta_ahora": 2020,
+      "grafos_distintos": 577,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 638,
+      "mejor_aptitud_hasta_ahora": 2020,
+      "grafos_distintos": 624,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 687,
+      "mejor_aptitud_hasta_ahora": 2020,
+      "grafos_distintos": 673,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 736,
+      "mejor_aptitud_hasta_ahora": 2020,
+      "grafos_distintos": 718,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 785,
+      "mejor_aptitud_hasta_ahora": 2020,
+      "grafos_distintos": 766,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 834,
+      "mejor_aptitud_hasta_ahora": 3011,
+      "grafos_distintos": 813,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 883,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 861,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 932,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 909,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 981,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 956,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "evaluaciones": 1000,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 975,
+      "primer_hallazgo": {
+        "B1": 69,
+        "U1": 3,
+        "A1": 3
+      }
+    }
+  ],
+  "tiempo_s": 0.275
+}

@@ -1,0 +1,311 @@
+{
+  "metodo": "aleatorio",
+  "semilla": 22,
+  "configuracion": {
+    "distribucion": "generar_aleatorio (igual que la población inicial del AG)"
+  },
+  "evaluaciones": 1000,
+  "grafos_distintos": 968,
+  "primer_hallazgo": {
+    "B1": 26,
+    "U1": 5,
+    "A1": 5
+  },
+  "incidencias": {},
+  "mejor_aptitud": 3015,
+  "mejor_grafo": {
+    "n": 6,
+    "inicio": 0,
+    "meta": 5,
+    "aristas": [
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        1,
+        4,
+        3
+      ],
+      [
+        1,
+        5,
+        5
+      ],
+      [
+        2,
+        3,
+        4
+      ],
+      [
+        3,
+        0,
+        6
+      ],
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        3,
+        5,
+        4
+      ],
+      [
+        4,
+        0,
+        7
+      ],
+      [
+        4,
+        1,
+        1
+      ],
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        4,
+        5,
+        1
+      ],
+      [
+        5,
+        0,
+        6
+      ],
+      [
+        5,
+        1,
+        3
+      ],
+      [
+        5,
+        2,
+        1
+      ]
+    ]
+  },
+  "progreso": [
+    {
+      "evaluaciones": 50,
+      "mejor_aptitud_hasta_ahora": 2017,
+      "grafos_distintos": 50,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 99,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 99,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 148,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 146,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 197,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 194,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 246,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 241,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 295,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 287,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 344,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 334,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 393,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 382,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 442,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 431,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 491,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 480,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 540,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 528,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 589,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 577,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 638,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 623,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 687,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 670,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 736,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 716,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 785,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 764,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 834,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 813,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 883,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 859,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 932,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 904,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 981,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 952,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    },
+    {
+      "evaluaciones": 1000,
+      "mejor_aptitud_hasta_ahora": 3015,
+      "grafos_distintos": 968,
+      "primer_hallazgo": {
+        "B1": 26,
+        "U1": 5,
+        "A1": 5
+      }
+    }
+  ],
+  "tiempo_s": 0.275
+}

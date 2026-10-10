@@ -1,0 +1,101 @@
+{
+  "id": "caso_05",
+  "objetivo": "A1",
+  "metodo": "genetico",
+  "semilla": 44,
+  "numero_evaluacion": 111,
+  "version_paquete": "1.0.0",
+  "limite_expansiones": 100,
+  "grafo": {
+    "n": 6,
+    "inicio": 0,
+    "meta": 5,
+    "aristas": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        5,
+        9
+      ],
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        2,
+        7
+      ],
+      [
+        1,
+        5,
+        1
+      ],
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        3,
+        5,
+        9
+      ],
+      [
+        5,
+        0,
+        5
+      ],
+      [
+        5,
+        2,
+        7
+      ]
+    ]
+  },
+  "heuristica": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "referencia": {
+    "existe_ruta": true,
+    "distancia_minima_aristas": 1,
+    "costo_minimo": 3
+  },
+  "resultado_objetivo": {
+    "estado": "solucion",
+    "ruta": [
+      0,
+      5
+    ],
+    "costo": 9,
+    "expansiones": 2,
+    "error": null
+  },
+  "verificacion_docente": {
+    "contraejemplo": true,
+    "concluyente": true,
+    "discrepancias": [
+      "no_optimo"
+    ],
+    "referencia": {
+      "existe_ruta": true,
+      "distancia_minima_aristas": 1,
+      "costo_minimo": 3
+    }
+  },
+  "discrepancias": [
+    "no_optimo"
+  ],
+  "explicacion": "A1 debe minimizar el costo: devolvió [0, 5] con costo 9, pero el mínimo es 3.",
+  "reproducido": true
+}

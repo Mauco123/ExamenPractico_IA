@@ -1,0 +1,95 @@
+{
+  "id": "caso_03",
+  "objetivo": "U1",
+  "metodo": "genetico",
+  "semilla": 11,
+  "numero_evaluacion": 34,
+  "version_paquete": "1.0.0",
+  "limite_expansiones": 100,
+  "grafo": {
+    "n": 6,
+    "inicio": 0,
+    "meta": 5,
+    "aristas": [
+      [
+        0,
+        1,
+        6
+      ],
+      [
+        0,
+        3,
+        5
+      ],
+      [
+        1,
+        2,
+        4
+      ],
+      [
+        1,
+        5,
+        3
+      ],
+      [
+        3,
+        5,
+        6
+      ],
+      [
+        4,
+        1,
+        6
+      ],
+      [
+        4,
+        5,
+        8
+      ],
+      [
+        5,
+        1,
+        5
+      ],
+      [
+        5,
+        4,
+        6
+      ]
+    ]
+  },
+  "heuristica": "no aplica",
+  "referencia": {
+    "existe_ruta": true,
+    "distancia_minima_aristas": 2,
+    "costo_minimo": 9
+  },
+  "resultado_objetivo": {
+    "estado": "solucion",
+    "ruta": [
+      0,
+      3,
+      5
+    ],
+    "costo": 11,
+    "expansiones": 2,
+    "error": null
+  },
+  "verificacion_docente": {
+    "contraejemplo": true,
+    "concluyente": true,
+    "discrepancias": [
+      "no_optimo"
+    ],
+    "referencia": {
+      "existe_ruta": true,
+      "distancia_minima_aristas": 2,
+      "costo_minimo": 9
+    }
+  },
+  "discrepancias": [
+    "no_optimo"
+  ],
+  "explicacion": "U1 debe minimizar el costo: devolvió [0, 3, 5] con costo 11, pero el mínimo es 9.",
+  "reproducido": true
+}

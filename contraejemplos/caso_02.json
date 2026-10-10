@@ -1,0 +1,91 @@
+{
+  "id": "caso_02",
+  "objetivo": "B1",
+  "metodo": "aleatorio",
+  "semilla": 11,
+  "numero_evaluacion": 833,
+  "version_paquete": "1.0.0",
+  "limite_expansiones": 100,
+  "grafo": {
+    "n": 6,
+    "inicio": 0,
+    "meta": 5,
+    "aristas": [
+      [
+        0,
+        3,
+        6
+      ],
+      [
+        0,
+        4,
+        5
+      ],
+      [
+        1,
+        5,
+        3
+      ],
+      [
+        2,
+        5,
+        2
+      ],
+      [
+        3,
+        2,
+        3
+      ],
+      [
+        3,
+        5,
+        7
+      ],
+      [
+        4,
+        2,
+        2
+      ],
+      [
+        5,
+        4,
+        9
+      ]
+    ]
+  },
+  "heuristica": "no aplica",
+  "referencia": {
+    "existe_ruta": true,
+    "distancia_minima_aristas": 2,
+    "costo_minimo": 9
+  },
+  "resultado_objetivo": {
+    "estado": "solucion",
+    "ruta": [
+      0,
+      4,
+      2,
+      5
+    ],
+    "costo": 9,
+    "expansiones": 3,
+    "error": null
+  },
+  "verificacion_docente": {
+    "contraejemplo": true,
+    "concluyente": true,
+    "discrepancias": [
+      "no_optimo"
+    ],
+    "referencia": {
+      "existe_ruta": true,
+      "distancia_minima_aristas": 2,
+      "costo_minimo": 9
+    }
+  },
+  "discrepancias": [
+    "no_optimo"
+  ],
+  "explicacion": "BFS debe minimizar aristas: devolvió [0, 4, 2, 5] con 3 aristas, pero el mínimo es 2.",
+  "reproducido": true
+}

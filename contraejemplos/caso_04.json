@@ -1,0 +1,89 @@
+{
+  "id": "caso_04",
+  "objetivo": "U1",
+  "metodo": "aleatorio",
+  "semilla": 55,
+  "numero_evaluacion": 235,
+  "version_paquete": "1.0.0",
+  "limite_expansiones": 100,
+  "grafo": {
+    "n": 6,
+    "inicio": 0,
+    "meta": 5,
+    "aristas": [
+      [
+        0,
+        3,
+        1
+      ],
+      [
+        0,
+        4,
+        7
+      ],
+      [
+        0,
+        5,
+        9
+      ],
+      [
+        1,
+        2,
+        5
+      ],
+      [
+        3,
+        5,
+        7
+      ],
+      [
+        4,
+        3,
+        6
+      ],
+      [
+        5,
+        3,
+        1
+      ],
+      [
+        5,
+        4,
+        4
+      ]
+    ]
+  },
+  "heuristica": "no aplica",
+  "referencia": {
+    "existe_ruta": true,
+    "distancia_minima_aristas": 1,
+    "costo_minimo": 8
+  },
+  "resultado_objetivo": {
+    "estado": "solucion",
+    "ruta": [
+      0,
+      5
+    ],
+    "costo": 9,
+    "expansiones": 1,
+    "error": null
+  },
+  "verificacion_docente": {
+    "contraejemplo": true,
+    "concluyente": true,
+    "discrepancias": [
+      "no_optimo"
+    ],
+    "referencia": {
+      "existe_ruta": true,
+      "distancia_minima_aristas": 1,
+      "costo_minimo": 8
+    }
+  },
+  "discrepancias": [
+    "no_optimo"
+  ],
+  "explicacion": "U1 debe minimizar el costo: devolvió [0, 5] con costo 9, pero el mínimo es 8.",
+  "reproducido": true
+}

@@ -2,13 +2,27 @@ import random
 from cromosoma import CromosomaGrafo, PARES_VALIDOS, COSTO_MIN, COSTO_MAX, MAX_ARISTAS
 from aptitud import calcular_aptitud
 
+
 class AlgoritmoGenetico:
-    def __init__(self, semilla, pop_size=50, max_evaluaciones=1000):
+    def __init__(self, evaluador, semilla, pop_size=50, prob_mutacion=0.2,
+                 torneo_k=3, reintentos_duplicado=3):
+        self.evaluador = evaluador
         self.semilla = semilla
         self.pop_size = pop_size
-        self.max_evaluaciones = max_evaluaciones
-        self.evaluaciones_consumidas = 0
+        self.prob_mutacion = prob_mutacion
+        self.torneo_k = torneo_k
+        self.reintentos_duplicado = reintentos_duplicado
+        self.progreso = []
         random.seed(self.semilla)
+
+    def configuracion(self):
+        return {"pop_size": self.pop_size, "seleccion": f"torneo k={self.torneo_k}",
+                "cruce": "unión de aristas de ambos padres y muestreo de k aristas",
+                "prob_mutacion_por_hijo": self.prob_mutacion,
+                "mutacion": "agregar / eliminar / cambiar costo de una arista",
+                "elitismo": 1, "reemplazo": "generacional con elitismo",
+                "duplicados": f"mutación forzada hasta {self.reintentos_duplicado} veces",
+                "parada": "presupuesto de evaluaciones agotado"}
 
     def inicializar_poblacion(self):
         poblacion = []
@@ -20,6 +34,7 @@ class AlgoritmoGenetico:
 
     def seleccion_torneo(self, poblacion, aptitudes, k=3):
         indices = random.sample(range(len(poblacion)), min(k, len(poblacion)))
+        # Gana la mayor aptitud; en empate, el primero sorteado (desempate aleatorio)
         ganador = max(indices, key=lambda i: aptitudes[i])
         return poblacion[ganador]
 
@@ -29,14 +44,11 @@ class AlgoritmoGenetico:
         for par, costo in padre2.aristas.items():
             if par not in union or random.random() < 0.5:
                 union[par] = costo
-
         n1, n2 = len(padre1.aristas), len(padre2.aristas)
         k = random.randint(min(n1, n2), max(n1, n2))
         k = min(k, len(union), MAX_ARISTAS)
-
         for par in random.sample(list(union), k):
             hijo.aristas[par] = union[par]
-
         return hijo
 
     def mutar(self, cromosoma, prob_mutacion=0.2):
@@ -47,9 +59,7 @@ class AlgoritmoGenetico:
                 opciones.append('agregar')
             if len(aristas) > 0:
                 opciones.extend(['eliminar', 'cambiar_costo'])
-
             tipo = random.choice(opciones)
-
             if tipo == 'agregar':
                 libres = [par for par in PARES_VALIDOS if par not in aristas]
                 aristas[random.choice(libres)] = random.randint(COSTO_MIN, COSTO_MAX)
@@ -59,41 +69,43 @@ class AlgoritmoGenetico:
                 par = random.choice(list(aristas))
                 aristas[par] = random.randint(COSTO_MIN, COSTO_MAX)
 
+    def evaluar(self, individuo):
+        evaluacion = self.evaluador.evaluar(individuo)
+        return calcular_aptitud(evaluacion, individuo)
+
+    def registrar(self, generacion, aptitudes):
+        self.progreso.append({
+            "generacion": generacion,
+            "evaluaciones": self.evaluador.consumidas,
+            "mejor_aptitud_generacion": max(aptitudes),
+            "aptitud_media": round(sum(aptitudes) / len(aptitudes), 2),
+            "grafos_distintos": len(self.evaluador.distintos),
+            "primer_hallazgo": dict(self.evaluador.primer_hallazgo)})
+
     def ejecutar(self):
         poblacion = self.inicializar_poblacion()
-        mejor_global = None
-        mejor_aptitud_global = -1
-        hallazgo_evaluacion_num = -1
-
-        while self.evaluaciones_consumidas < self.max_evaluaciones:
-            aptitudes = []
-            for ind in poblacion:
-                if self.evaluaciones_consumidas >= self.max_evaluaciones:
-                    break
-
-                aptitud = calcular_aptitud(ind)
-                aptitudes.append(aptitud)
-                self.evaluaciones_consumidas += 1
-
-                if aptitud > mejor_aptitud_global:
-                    mejor_aptitud_global = aptitud
-                    mejor_global = ind
-                    if aptitud >= 1000 and hallazgo_evaluacion_num == -1:
-                        hallazgo_evaluacion_num = self.evaluaciones_consumidas
-
-            if self.evaluaciones_consumidas >= self.max_evaluaciones:
-                break
-
-            nueva_poblacion = []
-            nueva_poblacion.append(mejor_global)
-
-            while len(nueva_poblacion) < self.pop_size:
-                padre1 = self.seleccion_torneo(poblacion, aptitudes)
-                padre2 = self.seleccion_torneo(poblacion, aptitudes)
+        aptitudes = [self.evaluar(ind) for ind in poblacion]   # cuenta en el presupuesto
+        self.registrar(0, aptitudes)
+        generacion = 0
+        while self.evaluador.restantes > 0:
+            generacion += 1
+            # Elitismo 1: el mejor pasa sin volver a evaluarse (empate: menor índice)
+            i_mejor = max(range(len(poblacion)), key=lambda i: aptitudes[i])
+            nueva, nuevas_apt = [poblacion[i_mejor]], [aptitudes[i_mejor]]
+            vistos = {ind.clave() for ind in poblacion}
+            while len(nueva) < self.pop_size and self.evaluador.restantes > 0:
+                padre1 = self.seleccion_torneo(poblacion, aptitudes, self.torneo_k)
+                padre2 = self.seleccion_torneo(poblacion, aptitudes, self.torneo_k)
                 hijo = self.cruzar(padre1, padre2)
-                self.mutar(hijo)
-                nueva_poblacion.append(hijo)
-
-            poblacion = nueva_poblacion
-
-        return mejor_global, mejor_aptitud_global, hallazgo_evaluacion_num
+                self.mutar(hijo, self.prob_mutacion)
+                for _ in range(self.reintentos_duplicado):   # evitar clones
+                    if hijo.clave() not in vistos:
+                        break
+                    self.mutar(hijo, prob_mutacion=1.0)
+                vistos.add(hijo.clave())
+                nueva.append(hijo)
+                nuevas_apt.append(self.evaluar(hijo))
+            poblacion, aptitudes = nueva, nuevas_apt
+            self.registrar(generacion, aptitudes)
+        i_mejor = max(range(len(poblacion)), key=lambda i: aptitudes[i])
+        return poblacion[i_mejor], aptitudes[i_mejor]

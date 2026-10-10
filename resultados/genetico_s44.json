@@ -1,0 +1,356 @@
+{
+  "metodo": "genetico",
+  "semilla": 44,
+  "configuracion": {
+    "pop_size": 50,
+    "seleccion": "torneo k=3",
+    "cruce": "unión de aristas de ambos padres y muestreo de k aristas",
+    "prob_mutacion_por_hijo": 0.2,
+    "mutacion": "agregar / eliminar / cambiar costo de una arista",
+    "elitismo": 1,
+    "reemplazo": "generacional con elitismo",
+    "duplicados": "mutación forzada hasta 3 veces",
+    "parada": "presupuesto de evaluaciones agotado"
+  },
+  "evaluaciones": 1000,
+  "grafos_distintos": 997,
+  "primer_hallazgo": {
+    "B1": 56,
+    "U1": 3,
+    "A1": 3
+  },
+  "incidencias": {},
+  "mejor_aptitud": 3016,
+  "mejor_grafo": {
+    "n": 6,
+    "inicio": 0,
+    "meta": 5,
+    "aristas": [
+      [
+        0,
+        2,
+        2
+      ],
+      [
+        0,
+        4,
+        1
+      ],
+      [
+        1,
+        5,
+        1
+      ],
+      [
+        2,
+        0,
+        6
+      ],
+      [
+        2,
+        4,
+        2
+      ],
+      [
+        2,
+        5,
+        8
+      ],
+      [
+        3,
+        0,
+        1
+      ],
+      [
+        3,
+        1,
+        3
+      ],
+      [
+        3,
+        2,
+        9
+      ],
+      [
+        4,
+        2,
+        2
+      ],
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        5,
+        1,
+        2
+      ],
+      [
+        5,
+        2,
+        7
+      ],
+      [
+        5,
+        4,
+        7
+      ]
+    ]
+  },
+  "progreso": [
+    {
+      "generacion": 0,
+      "evaluaciones": 50,
+      "mejor_aptitud_generacion": 2020,
+      "aptitud_media": 459.32,
+      "grafos_distintos": 47,
+      "primer_hallazgo": {
+        "B1": null,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 1,
+      "evaluaciones": 99,
+      "mejor_aptitud_generacion": 2020,
+      "aptitud_media": 711.8,
+      "grafos_distintos": 96,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 2,
+      "evaluaciones": 148,
+      "mejor_aptitud_generacion": 3009,
+      "aptitud_media": 1226.4,
+      "grafos_distintos": 145,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 3,
+      "evaluaciones": 197,
+      "mejor_aptitud_generacion": 3009,
+      "aptitud_media": 1387.16,
+      "grafos_distintos": 194,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 4,
+      "evaluaciones": 246,
+      "mejor_aptitud_generacion": 3010,
+      "aptitud_media": 1222.72,
+      "grafos_distintos": 243,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 5,
+      "evaluaciones": 295,
+      "mejor_aptitud_generacion": 3013,
+      "aptitud_media": 1387.8,
+      "grafos_distintos": 292,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 6,
+      "evaluaciones": 344,
+      "mejor_aptitud_generacion": 3013,
+      "aptitud_media": 1454.2,
+      "grafos_distintos": 341,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 7,
+      "evaluaciones": 393,
+      "mejor_aptitud_generacion": 3013,
+      "aptitud_media": 1172.52,
+      "grafos_distintos": 390,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 8,
+      "evaluaciones": 442,
+      "mejor_aptitud_generacion": 3013,
+      "aptitud_media": 1409.3,
+      "grafos_distintos": 439,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 9,
+      "evaluaciones": 491,
+      "mejor_aptitud_generacion": 3013,
+      "aptitud_media": 1511.3,
+      "grafos_distintos": 488,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 10,
+      "evaluaciones": 540,
+      "mejor_aptitud_generacion": 3013,
+      "aptitud_media": 1348.3,
+      "grafos_distintos": 537,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 11,
+      "evaluaciones": 589,
+      "mejor_aptitud_generacion": 3013,
+      "aptitud_media": 1573.02,
+      "grafos_distintos": 586,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 12,
+      "evaluaciones": 638,
+      "mejor_aptitud_generacion": 3013,
+      "aptitud_media": 1614.36,
+      "grafos_distintos": 635,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 13,
+      "evaluaciones": 687,
+      "mejor_aptitud_generacion": 3013,
+      "aptitud_media": 1496.78,
+      "grafos_distintos": 684,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 14,
+      "evaluaciones": 736,
+      "mejor_aptitud_generacion": 3013,
+      "aptitud_media": 1476.44,
+      "grafos_distintos": 733,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 15,
+      "evaluaciones": 785,
+      "mejor_aptitud_generacion": 3013,
+      "aptitud_media": 1475.96,
+      "grafos_distintos": 782,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 16,
+      "evaluaciones": 834,
+      "mejor_aptitud_generacion": 3015,
+      "aptitud_media": 1330.0,
+      "grafos_distintos": 831,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 17,
+      "evaluaciones": 883,
+      "mejor_aptitud_generacion": 3016,
+      "aptitud_media": 1393.74,
+      "grafos_distintos": 880,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 18,
+      "evaluaciones": 932,
+      "mejor_aptitud_generacion": 3016,
+      "aptitud_media": 1383.08,
+      "grafos_distintos": 929,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 19,
+      "evaluaciones": 981,
+      "mejor_aptitud_generacion": 3016,
+      "aptitud_media": 1528.4,
+      "grafos_distintos": 978,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    },
+    {
+      "generacion": 20,
+      "evaluaciones": 1000,
+      "mejor_aptitud_generacion": 3016,
+      "aptitud_media": 1596.95,
+      "grafos_distintos": 997,
+      "primer_hallazgo": {
+        "B1": 56,
+        "U1": 3,
+        "A1": 3
+      }
+    }
+  ],
+  "tiempo_s": 0.306
+}

@@ -1,99 +1,99 @@
+"""Experimento principal: AG y búsqueda aleatoria, semillas 11, 22, 33, 44, 55,
+1000 evaluaciones por método y semilla. Escribe en resultados/ y contraejemplos/."""
+import csv
 import json
+import platform
 import time
-import random
-from cromosoma import CromosomaGrafo
+from pathlib import Path
+from statistics import median
+
+from docente import VERSION, AGENTES
+from evaluador import EvaluadorComun
 from algoritmo_genetico import AlgoritmoGenetico
-from aptitud import calcular_aptitud
-from docente import evaluar
+from busqueda_aleatoria import ejecutar_busqueda_aleatoria
+from contraejemplos import guardar_contraejemplos
 
 SEMILLAS = [11, 22, 33, 44, 55]
-AGENTES = ['B1', 'U1', 'A1']
 MAX_EVALUACIONES = 1000
-MAX_CONTRAEJEMPLOS = 6
+LIMITE_EXPANSIONES = 100
+POP_SIZE = 50
+RESULTADOS = Path("resultados")
 
-def ejecutar_busqueda_aleatoria(semilla):
-    random.seed(semilla)
-    mejor_grafo = None
-    mejor_aptitud = -1
-    hallazgo_evaluacion_num = -1
 
-    for num_evaluacion in range(1, MAX_EVALUACIONES + 1):
-        individuo = CromosomaGrafo()
-        individuo.generar_aleatorio()
-        aptitud = calcular_aptitud(individuo)
+def guardar_json(ruta, datos):
+    ruta.parent.mkdir(parents=True, exist_ok=True)
+    ruta.write_text(json.dumps(datos, indent=2, ensure_ascii=False), encoding="utf-8")
 
-        if aptitud > mejor_aptitud:
-            mejor_aptitud = aptitud
-            mejor_grafo = individuo
-            if aptitud >= 1000 and hallazgo_evaluacion_num == -1:
-                hallazgo_evaluacion_num = num_evaluacion
 
-    return mejor_grafo, mejor_aptitud, hallazgo_evaluacion_num
+def una_ejecucion(metodo, semilla):
+    ev = EvaluadorComun(MAX_EVALUACIONES, LIMITE_EXPANSIONES)
+    t0 = time.perf_counter()
+    if metodo == "genetico":
+        ag = AlgoritmoGenetico(ev, semilla, pop_size=POP_SIZE)
+        mejor, aptitud = ag.ejecutar()
+        progreso, config = ag.progreso, ag.configuracion()
+    else:
+        mejor, aptitud, progreso = ejecutar_busqueda_aleatoria(ev, semilla, POP_SIZE)
+        config = {"distribucion": "generar_aleatorio (igual que la población inicial del AG)"}
+    registro = {"metodo": metodo, "semilla": semilla, "configuracion": config,
+                **ev.resumen(), "mejor_aptitud": aptitud,
+                "mejor_grafo": mejor.a_formato_evaluador(),
+                "progreso": progreso,
+                "tiempo_s": round(time.perf_counter() - t0, 3)}
+    guardar_json(RESULTADOS / f"{metodo}_s{semilla}.json", registro)
+    return registro, ev.hallazgos
 
-def registro(semilla, mejor_grafo, mejor_aptitud, hallazgo, tiempo):
-    return {
-        "semilla": semilla,
-        "mejor_aptitud": mejor_aptitud,
-        "evaluacion_primer_hallazgo": hallazgo,
-        "n_aristas": len(mejor_grafo.aristas) if mejor_grafo else 0,
-        "grafo": mejor_grafo.a_formato_evaluador() if mejor_grafo else None,
-        "tiempo_s": round(tiempo, 4),
-    }
+
+def resumir(registros):
+    filas = []
+    for metodo in ("genetico", "aleatorio"):
+        regs = [r for r in registros if r["metodo"] == metodo]
+        for a in AGENTES:
+            exitos = [r["primer_hallazgo"][a] for r in regs
+                      if r["primer_hallazgo"][a] != "no encontrado"]
+            filas.append({
+                "metodo": metodo, "objetivo": a,
+                "ejecuciones_con_hallazgo": f"{len(exitos)}/{len(regs)}",
+                "mediana_evals_primer_hallazgo_solo_exitos": median(exitos) if exitos else "no aplica",
+                "ejecuciones_sin_hallazgo": len(regs) - len(exitos),
+                "grafos_distintos_total": sum(r["grafos_distintos"] for r in regs),
+                "incidencias_total": sum(sum(r["incidencias"].values()) for r in regs),
+                "tiempo_total_s": round(sum(r["tiempo_s"] for r in regs), 3)})
+    return filas
+
+
+def escribir_csv(ruta, filas):
+    with open(ruta, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=list(filas[0]))
+        w.writeheader()
+        w.writerows(filas)
+
 
 def ejecutar_experimentos():
-    resultados_totales = {"genetico": [], "aleatorio": []}
-    contraejemplos = []
+    guardar_json(RESULTADOS / "configuracion.json", {
+        "semillas": SEMILLAS, "presupuesto": MAX_EVALUACIONES,
+        "limite_expansiones": LIMITE_EXPANSIONES, "pop_size": POP_SIZE,
+        "version_paquete_docente": VERSION, "python": platform.python_version()})
+    registros, hallazgos = [], []
+    for metodo in ("genetico", "aleatorio"):
+        for semilla in SEMILLAS:
+            registro, h = una_ejecucion(metodo, semilla)
+            registros.append(registro)
+            hallazgos.append((metodo, semilla, h))
+            print(f"{metodo:9s} semilla {semilla}: {registro['primer_hallazgo']}")
+    filas = resumir(registros)
+    escribir_csv(RESULTADOS / "resumen.csv", filas)
+    escribir_csv(RESULTADOS / "progreso.csv", [
+        {"metodo": r["metodo"], "semilla": r["semilla"], "generacion": p.get("generacion", ""),
+         "evaluaciones": p["evaluaciones"],
+         "mejor_aptitud": p.get("mejor_aptitud_generacion", p.get("mejor_aptitud_hasta_ahora")),
+         **{f"primer_{a}": p["primer_hallazgo"][a] or "no encontrado" for a in AGENTES}}
+        for r in registros for p in r["progreso"]])
+    casos = guardar_contraejemplos(hallazgos, LIMITE_EXPANSIONES)
+    for f in filas:
+        print(f)
+    print(f"Contraejemplos guardados: {len(casos)}")
 
-    print("\n--- Iniciando Experimentos ---")
-    for semilla in SEMILLAS:
-        print(f"\nSemilla: {semilla}...")
-
-        # --- 1. Algoritmo Genético ---
-        inicio_tiempo_ag = time.time()
-        ag = AlgoritmoGenetico(semilla, max_evaluaciones=MAX_EVALUACIONES)
-        mejor_ag, aptitud_ag, hallazgo_ag = ag.ejecutar()
-        tiempo_ag = time.time() - inicio_tiempo_ag
-        resultados_totales["genetico"].append(registro(semilla, mejor_ag, aptitud_ag, hallazgo_ag, tiempo_ag))
-
-        # --- 2. Búsqueda Aleatoria ---
-        inicio_tiempo_ba = time.time()
-        mejor_ba, aptitud_ba, hallazgo_ba = ejecutar_busqueda_aleatoria(semilla)
-        tiempo_ba = time.time() - inicio_tiempo_ba
-        resultados_totales["aleatorio"].append(registro(semilla, mejor_ba, aptitud_ba, hallazgo_ba, tiempo_ba))
-
-        print(f"  AG:        aptitud={aptitud_ag}  hallazgo en eval {hallazgo_ag}")
-        print(f"  Aleatorio: aptitud={aptitud_ba}  hallazgo en eval {hallazgo_ba}")
-
-        # --- 3. Recolección de Contraejemplos ---
-        for metodo, grafo, aptitud in (("genetico", mejor_ag, aptitud_ag), ("aleatorio", mejor_ba, aptitud_ba)):
-            if aptitud >= 1000 and len(contraejemplos) < MAX_CONTRAEJEMPLOS:
-                grafo_dict = grafo.a_formato_evaluador()
-                informe = evaluar(grafo_dict)
-
-                # Guardamos el contraejemplo indicando a qué agente rompió
-                for agente in AGENTES:
-                    if informe[agente]["verificacion"]["discrepancias"] and len(contraejemplos) < MAX_CONTRAEJEMPLOS:
-                        contraejemplos.append({
-                            "agente_roto": agente,
-                            "metodo": metodo,
-                            "semilla": semilla,
-                            "aptitud": aptitud,
-                            "grafo": grafo_dict,
-                            "resultado_agente": informe[agente]["resultado"],
-                            "discrepancias": informe[agente]["verificacion"]["discrepancias"],
-                            "referencia": informe[agente]["verificacion"]["referencia"],
-                        })
-                        # Con que se registre para un agente roto es suficiente para no duplicar este grafo
-                        break
-
-    # --- 4. Guardar los registros ---
-    with open('resultados_experimento.json', 'w', encoding='utf-8') as f:
-        json.dump(resultados_totales, f, indent=2, ensure_ascii=False)
-
-    with open('contraejemplos.json', 'w', encoding='utf-8') as f:
-        json.dump(contraejemplos, f, indent=2, ensure_ascii=False)
-
-    print("\nExperimentos completados. Resultados guardados.")
 
 if __name__ == "__main__":
     ejecutar_experimentos()

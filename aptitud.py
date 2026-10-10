@@ -1,33 +1,41 @@
-from docente import evaluar
+"""Función de aptitud sobre los tres agentes (mayor es mejor).
 
-def calcular_aptitud(cromosoma, limite_expansiones=100):
-    """
-    Evalúa un cromosoma contra los 3 agentes y le asigna una puntuación.
-    """
-    grafo_dict = cromosoma.a_formato_evaluador()
-    informe = evaluar(grafo_dict, limite_expansiones)
+Niveles (nunca se traslapan porque el bono de simplicidad vale 0..30):
+  1000 * k + simplicidad   k = agentes (B1, U1, A1) con contraejemplo confirmado, k >= 1
+  100 + 10 * rutas + simp. sin hallazgo, pero hay ruta 0->5 (rutas = caminos simples, tope 10)
+  simplicidad              sin hallazgo y sin ruta 0->5
+  0                        error de nuestro propio código
+simplicidad = 30 - número de aristas (criterio secundario: preferir grafos pequeños).
+limite / error / desacuerdo no suman: no son evidencia de defecto.
+"""
+from cromosoma import INICIO, META, MAX_ARISTAS
 
-    puntuacion_maxima = 0
+TOPE_RUTAS = 10
 
-    # Buscamos si el grafo rompe a CUALQUIERA de los 3 agentes
-    for agente in ['B1', 'U1', 'A1']:
-        estado = informe[agente]['resultado']['estado']
-        discrepancias = informe[agente]['verificacion']['discrepancias']
 
-        puntuacion_actual = 0
-        if estado in ('limite', 'error'):
-            puntuacion_actual = 0
-        elif not discrepancias:
-            puntuacion_actual = 10
-        else:
-            puntuacion_actual = 1000
+def contar_rutas_simples(cromosoma, tope=TOPE_RUTAS):
+    vecinos = {}
+    for (u, v) in cromosoma.aristas:
+        vecinos.setdefault(u, []).append(v)
+    cuenta, pila = 0, [(INICIO, {INICIO})]
+    while pila and cuenta < tope:
+        u, visitados = pila.pop()
+        if u == META:
+            cuenta += 1
+            continue
+        for v in vecinos.get(u, []):
+            if v not in visitados:
+                pila.append((v, visitados | {v}))
+    return cuenta
 
-        if puntuacion_actual > puntuacion_maxima:
-            puntuacion_maxima = puntuacion_actual
 
-    # Criterio secundario de simplicidad (Desempate)
-    # Bono de 30 - número de aristas
-    if puntuacion_maxima > 0:
-        puntuacion_maxima += 30 - len(cromosoma.aristas)
-
-    return puntuacion_maxima
+def calcular_aptitud(evaluacion, cromosoma):
+    if evaluacion["agentes"] is None:          # error del equipo
+        return 0
+    simplicidad = MAX_ARISTAS - len(cromosoma.aristas)
+    k = sum(1 for d in evaluacion["agentes"].values() if d["clase"] == "contraejemplo")
+    if k > 0:
+        return 1000 * k + simplicidad
+    if evaluacion["referencia"]["existe_ruta"]:
+        return 100 + 10 * contar_rutas_simples(cromosoma) + simplicidad
+    return simplicidad

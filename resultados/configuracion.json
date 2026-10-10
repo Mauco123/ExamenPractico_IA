@@ -1,0 +1,14 @@
+{
+  "semillas": [
+    11,
+    22,
+    33,
+    44,
+    55
+  ],
+  "presupuesto": 1000,
+  "limite_expansiones": 100,
+  "pop_size": 50,
+  "version_paquete_docente": "1.0.0",
+  "python": "3.14.4"
+}

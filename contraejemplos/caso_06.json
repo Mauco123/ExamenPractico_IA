@@ -1,0 +1,88 @@
+{
+  "id": "caso_06",
+  "objetivo": "A1",
+  "metodo": "aleatorio",
+  "semilla": 55,
+  "numero_evaluacion": 289,
+  "version_paquete": "1.0.0",
+  "limite_expansiones": 100,
+  "grafo": {
+    "n": 6,
+    "inicio": 0,
+    "meta": 5,
+    "aristas": [
+      [
+        0,
+        3,
+        7
+      ],
+      [
+        0,
+        4,
+        9
+      ],
+      [
+        1,
+        4,
+        3
+      ],
+      [
+        2,
+        5,
+        9
+      ],
+      [
+        3,
+        2,
+        8
+      ],
+      [
+        4,
+        2,
+        1
+      ]
+    ]
+  },
+  "heuristica": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "referencia": {
+    "existe_ruta": true,
+    "distancia_minima_aristas": 3,
+    "costo_minimo": 19
+  },
+  "resultado_objetivo": {
+    "estado": "solucion",
+    "ruta": [
+      0,
+      3,
+      2,
+      5
+    ],
+    "costo": 24,
+    "expansiones": 4,
+    "error": null
+  },
+  "verificacion_docente": {
+    "contraejemplo": true,
+    "concluyente": true,
+    "discrepancias": [
+      "no_optimo"
+    ],
+    "referencia": {
+      "existe_ruta": true,
+      "distancia_minima_aristas": 3,
+      "costo_minimo": 19
+    }
+  },
+  "discrepancias": [
+    "no_optimo"
+  ],
+  "explicacion": "A1 debe minimizar el costo: devolvió [0, 3, 2, 5] con costo 24, pero el mínimo es 19.",
+  "reproducido": true
+}
