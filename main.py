@@ -6,17 +6,15 @@ from algoritmo_genetico import AlgoritmoGenetico
 from aptitud import calcular_aptitud
 from busqueda import evaluar
 
-# Semillas exigidas por el proyecto
+
 SEMILLAS = [11, 22, 33, 44, 55]
 AGENTES = ['B1', 'U1', 'A1']
 MAX_EVALUACIONES = 1000
 MAX_CONTRAEJEMPLOS = 6
-CONTRAEJEMPLOS_POR_AGENTE = MAX_CONTRAEJEMPLOS // len(AGENTES)  # 2 por agente
+CONTRAEJEMPLOS_POR_AGENTE = MAX_CONTRAEJEMPLOS // len(AGENTES)
 
 def ejecutar_busqueda_aleatoria(agente, semilla):
-    """
-    Línea base: Genera y evalúa grafos completamente al azar sin cruza ni mutación.
-    """
+
     random.seed(semilla)
 
     mejor_grafo = None
@@ -37,7 +35,7 @@ def ejecutar_busqueda_aleatoria(agente, semilla):
     return mejor_grafo, mejor_aptitud, hallazgo_evaluacion_num
 
 def registro(semilla, mejor_grafo, mejor_aptitud, hallazgo, tiempo):
-    """Arma el diccionario que se guarda por cada corrida."""
+
     return {
         "semilla": semilla,
         "mejor_aptitud": mejor_aptitud,
@@ -48,15 +46,12 @@ def registro(semilla, mejor_grafo, mejor_aptitud, hallazgo, tiempo):
     }
 
 def ejecutar_experimentos():
-    """
-    Ejecuta el Algoritmo Genético y la Búsqueda Aleatoria para todos los agentes y semillas.
-    """
+
     resultados_totales = {
         "genetico": {agente: [] for agente in AGENTES},
         "aleatorio": {agente: [] for agente in AGENTES}
     }
 
-    # Lista para almacenar los 6 contraejemplos representativos (Req. 11)
     contraejemplos = []
 
     for agente in AGENTES:
@@ -66,7 +61,6 @@ def ejecutar_experimentos():
         for semilla in SEMILLAS:
             print(f"Semilla: {semilla}...")
 
-            # --- 1. Ejecución del Algoritmo Genético ---
             inicio_tiempo_ag = time.time()
             ag = AlgoritmoGenetico(agente, semilla, max_evaluaciones=MAX_EVALUACIONES)
             mejor_ag, aptitud_ag, hallazgo_ag = ag.ejecutar()
@@ -74,7 +68,6 @@ def ejecutar_experimentos():
             resultados_totales["genetico"][agente].append(
                 registro(semilla, mejor_ag, aptitud_ag, hallazgo_ag, tiempo_ag))
 
-            # --- 2. Ejecución de la Búsqueda Aleatoria ---
             inicio_tiempo_ba = time.time()
             mejor_ba, aptitud_ba, hallazgo_ba = ejecutar_busqueda_aleatoria(agente, semilla)
             tiempo_ba = time.time() - inicio_tiempo_ba
@@ -84,8 +77,7 @@ def ejecutar_experimentos():
             print(f"  AG:        aptitud={aptitud_ag}  hallazgo en eval {hallazgo_ag}")
             print(f"  Aleatorio: aptitud={aptitud_ba}  hallazgo en eval {hallazgo_ba}")
 
-            # --- 3. Recolección de Contraejemplos ---
-            # Se guardan 2 por agente para que los 6 cubran a B1, U1 y A1.
+
             for metodo, grafo, aptitud in (("genetico", mejor_ag, aptitud_ag),
                                            ("aleatorio", mejor_ba, aptitud_ba)):
                 if (aptitud >= 1000 and contraejemplos_agente < CONTRAEJEMPLOS_POR_AGENTE
@@ -104,7 +96,7 @@ def ejecutar_experimentos():
                     })
                     contraejemplos_agente += 1
 
-    # --- 4. Guardar los registros ---
+
     with open('resultados_experimento.json', 'w', encoding='utf-8') as f:
         json.dump(resultados_totales, f, indent=2, ensure_ascii=False)
 
