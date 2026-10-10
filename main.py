@@ -1,3 +1,16 @@
+import json
+import time
+import random
+from cromosoma import CromosomaGrafo
+from algoritmo_genetico import AlgoritmoGenetico
+from aptitud import calcular_aptitud
+from busqueda import evaluar
+
+SEMILLAS = [11, 22, 33, 44, 55]
+AGENTES = ['B1', 'U1', 'A1']
+MAX_EVALUACIONES = 1000
+MAX_CONTRAEJEMPLOS = 6
+
 def ejecutar_busqueda_aleatoria(semilla):
     random.seed(semilla)
     mejor_grafo = None
@@ -7,7 +20,7 @@ def ejecutar_busqueda_aleatoria(semilla):
     for num_evaluacion in range(1, MAX_EVALUACIONES + 1):
         individuo = CromosomaGrafo()
         individuo.generar_aleatorio()
-        aptitud = calcular_aptitud(individuo)  # Sin agente objetivo
+        aptitud = calcular_aptitud(individuo)
 
         if aptitud > mejor_aptitud:
             mejor_aptitud = aptitud
@@ -17,6 +30,15 @@ def ejecutar_busqueda_aleatoria(semilla):
 
     return mejor_grafo, mejor_aptitud, hallazgo_evaluacion_num
 
+def registro(semilla, mejor_grafo, mejor_aptitud, hallazgo, tiempo):
+    return {
+        "semilla": semilla,
+        "mejor_aptitud": mejor_aptitud,
+        "evaluacion_primer_hallazgo": hallazgo,
+        "n_aristas": len(mejor_grafo.aristas) if mejor_grafo else 0,
+        "grafo": mejor_grafo.a_formato_evaluador() if mejor_grafo else None,
+        "tiempo_s": round(tiempo, 4),
+    }
 
 def ejecutar_experimentos():
     resultados_totales = {"genetico": [], "aleatorio": []}
@@ -48,7 +70,7 @@ def ejecutar_experimentos():
                 grafo_dict = grafo.a_formato_evaluador()
                 informe = evaluar(grafo_dict)
 
-                # Revisamos a qué agente(s) rompió este grafo para guardarlo
+                # Guardamos el contraejemplo indicando a qué agente rompió
                 for agente in AGENTES:
                     if informe[agente]["verificacion"]["discrepancias"] and len(contraejemplos) < MAX_CONTRAEJEMPLOS:
                         contraejemplos.append({
@@ -57,10 +79,14 @@ def ejecutar_experimentos():
                             "semilla": semilla,
                             "aptitud": aptitud,
                             "grafo": grafo_dict,
+                            "resultado_agente": informe[agente]["resultado"],
                             "discrepancias": informe[agente]["verificacion"]["discrepancias"],
+                            "referencia": informe[agente]["verificacion"]["referencia"],
                         })
+                        # Con que se registre para un agente roto es suficiente para no duplicar este grafo
                         break
 
+    # --- 4. Guardar los registros ---
     with open('resultados_experimento.json', 'w', encoding='utf-8') as f:
         json.dump(resultados_totales, f, indent=2, ensure_ascii=False)
 
@@ -68,3 +94,6 @@ def ejecutar_experimentos():
         json.dump(contraejemplos, f, indent=2, ensure_ascii=False)
 
     print("\nExperimentos completados. Resultados guardados.")
+
+if __name__ == "__main__":
+    ejecutar_experimentos()

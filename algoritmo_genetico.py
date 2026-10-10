@@ -19,15 +19,12 @@ class AlgoritmoGenetico:
         return poblacion
 
     def seleccion_torneo(self, poblacion, aptitudes, k=3):
-
         indices = random.sample(range(len(poblacion)), min(k, len(poblacion)))
-        # El ganador es el de mayor aptitud entre los elegidos
         ganador = max(indices, key=lambda i: aptitudes[i])
         return poblacion[ganador]
 
     def cruzar(self, padre1, padre2):
         hijo = CromosomaGrafo()
-
         union = dict(padre1.aristas)
         for par, costo in padre2.aristas.items():
             if par not in union or random.random() < 0.5:
@@ -43,10 +40,8 @@ class AlgoritmoGenetico:
         return hijo
 
     def mutar(self, cromosoma, prob_mutacion=0.2):
-
         if random.random() < prob_mutacion:
             aristas = cromosoma.aristas
-
             opciones = []
             if len(aristas) < MAX_ARISTAS:
                 opciones.append('agregar')
@@ -58,10 +53,8 @@ class AlgoritmoGenetico:
             if tipo == 'agregar':
                 libres = [par for par in PARES_VALIDOS if par not in aristas]
                 aristas[random.choice(libres)] = random.randint(COSTO_MIN, COSTO_MAX)
-
             elif tipo == 'eliminar':
                 del aristas[random.choice(list(aristas))]
-
             else:
                 par = random.choice(list(aristas))
                 aristas[par] = random.randint(COSTO_MIN, COSTO_MAX)
@@ -74,7 +67,6 @@ class AlgoritmoGenetico:
 
         while self.evaluaciones_consumidas < self.max_evaluaciones:
             aptitudes = []
-
             for ind in poblacion:
                 if self.evaluaciones_consumidas >= self.max_evaluaciones:
                     break
@@ -93,18 +85,13 @@ class AlgoritmoGenetico:
                 break
 
             nueva_poblacion = []
-
             nueva_poblacion.append(mejor_global)
 
             while len(nueva_poblacion) < self.pop_size:
-
                 padre1 = self.seleccion_torneo(poblacion, aptitudes)
                 padre2 = self.seleccion_torneo(poblacion, aptitudes)
-
                 hijo = self.cruzar(padre1, padre2)
-
                 self.mutar(hijo)
-
                 nueva_poblacion.append(hijo)
 
             poblacion = nueva_poblacion
