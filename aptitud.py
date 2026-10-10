@@ -17,3 +17,4 @@ def calcular_aptitud(cromosoma, agente_objetivo='B1', limite_expansiones=100):
     if puntuacion > 0:
         puntuacion += 30 - len(cromosoma.aristas)
     return puntuacion
+
