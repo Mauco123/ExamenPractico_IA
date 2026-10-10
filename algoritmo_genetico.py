@@ -3,8 +3,7 @@ from cromosoma import CromosomaGrafo, PARES_VALIDOS, COSTO_MIN, COSTO_MAX, MAX_A
 from aptitud import calcular_aptitud
 
 class AlgoritmoGenetico:
-    def __init__(self, agente_objetivo, semilla, pop_size=50, max_evaluaciones=1000):
-        self.agente_objetivo = agente_objetivo
+    def __init__(self, semilla, pop_size=50, max_evaluaciones=1000):
         self.semilla = semilla
         self.pop_size = pop_size
         self.max_evaluaciones = max_evaluaciones
@@ -80,7 +79,7 @@ class AlgoritmoGenetico:
                 if self.evaluaciones_consumidas >= self.max_evaluaciones:
                     break
 
-                aptitud = calcular_aptitud(ind, self.agente_objetivo)
+                aptitud = calcular_aptitud(ind)
                 aptitudes.append(aptitud)
                 self.evaluaciones_consumidas += 1
 
