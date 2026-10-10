@@ -4,7 +4,7 @@ import random
 from cromosoma import CromosomaGrafo
 from algoritmo_genetico import AlgoritmoGenetico
 from aptitud import calcular_aptitud
-from busqueda import evaluar
+from docente import evaluar
 
 SEMILLAS = [11, 22, 33, 44, 55]
 AGENTES = ['B1', 'U1', 'A1']

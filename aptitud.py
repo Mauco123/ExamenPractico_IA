@@ -1,4 +1,4 @@
-from busqueda import evaluar
+from docente import evaluar
 
 def calcular_aptitud(cromosoma, limite_expansiones=100):
     """
