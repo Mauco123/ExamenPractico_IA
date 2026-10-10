@@ -1,0 +1,18 @@
+test_ausencia_de_ruta (pruebas.test_proyecto.Clasificacion.test_ausencia_de_ruta) ... ok
+test_bfs_por_aristas_ucs_por_costo (pruebas.test_proyecto.Clasificacion.test_bfs_por_aristas_ucs_por_costo) ... ok
+test_costo_declarado_incorrecto (pruebas.test_proyecto.Clasificacion.test_costo_declarado_incorrecto) ... ok
+test_limite_no_es_contraejemplo (pruebas.test_proyecto.Clasificacion.test_limite_no_es_contraejemplo) ... ok
+test_ruta_invalida (pruebas.test_proyecto.Clasificacion.test_ruta_invalida) ... ok
+test_rutas_alternativas_de_igual_calidad (pruebas.test_proyecto.Clasificacion.test_rutas_alternativas_de_igual_calidad) ... ok
+test_adaptador_ida_y_vuelta (pruebas.test_proyecto.Formato.test_adaptador_ida_y_vuelta) ... ok
+test_rechaza_fuera_de_dominio (pruebas.test_proyecto.Formato.test_rechaza_fuera_de_dominio) ... ok
+test_sin_ruta_es_valido (pruebas.test_proyecto.Formato.test_sin_ruta_es_valido) ... ok
+test_cruce_y_mutacion_preservan_dominio (pruebas.test_proyecto.Operadores.test_cruce_y_mutacion_preservan_dominio) ... ok
+test_metodos_usan_exactamente_1000 (pruebas.test_proyecto.Presupuesto.test_metodos_usan_exactamente_1000) ... ok
+test_repetidos_consumen_presupuesto (pruebas.test_proyecto.Presupuesto.test_repetidos_consumen_presupuesto) ... ok
+test_semilla_fija_reproduce (pruebas.test_proyecto.Presupuesto.test_semilla_fija_reproduce) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.195s
+
+OK
