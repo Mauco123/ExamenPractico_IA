@@ -42,20 +42,20 @@ casos.json
 
 ---
 **Dónde colocar el paquete docente**\
-Falta
+El paquete docente busqueda va en la carpeta material_docente/busqueda/
 
 ---
 **Dónde se guardan los resultados**
 
-* resultados/configuracion.json -> Semillas, presupuesto, límite de expansiones, tamaño de población, versiones\
-* resultados/_s.json -> Registro de las 10 ejecuciones principales\
-* resultados/progreso.csv -> Progreso de las 10 ejecuciones\
-* resultados/resumen.csv -> Comparación por método y agente\
-* contraejemplos/ ->  6 casos de prueba\
+* resultados/configuracion.json -> Semillas, presupuesto, límite de expansiones, tamaño de población, versiones
+* resultados/_s.json -> Registro de las 10 ejecuciones principales
+* resultados/progreso.csv -> Progreso de las 10 ejecuciones
+* resultados/resumen.csv -> Comparación por método y agente
+* contraejemplos/ ->  6 casos de prueba
 * resultados/individuales/ ->  Ejecuciones sueltas con --metodo
 
 ---
 
 **Tiempo de ejecución**\
-* python3 main.py -> (10 ejecuciones + contraejemplos) en 3.1 s\
+* python3 main.py -> (10 ejecuciones + contraejemplos) en 3.1 s
 * Pruebas  en 1.3 s
