@@ -65,6 +65,6 @@ El paquete docente busqueda versión 1.0.0, sin modificar va en la carpeta mater
 
 ---
 
-**Tiempo de ejecución**\
+**Tiempo de ejecución**
 * python3 main.py -> (10 ejecuciones + contraejemplos) en 3.1 s
 * Pruebas  en 1.3 s
