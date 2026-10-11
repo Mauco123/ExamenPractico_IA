@@ -1,4 +1,4 @@
-"""Evaluador común: único punto por el que el AG y la búsqueda aleatoria evalúan grafos."""
+# Evaluador común: único punto por el que el AG y la búsqueda aleatoria evalúan grafos.
 from collections import Counter
 
 from docente import evaluar, AGENTES

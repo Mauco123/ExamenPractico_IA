@@ -1,13 +1,19 @@
-"""Línea base: grafos independientes con la misma distribución que la población inicial
-del AG (generar_aleatorio), el mismo evaluador y el mismo presupuesto. Sin selección ni
-reproducción; la aptitud solo se calcula para registrar el mejor valor visto."""
+"""
+Aquí armamos la línea base con búsqueda aleatoria:
+Generamos grafos independientes usando la misma distribución de la población 
+inicial de nuestro AG (con 'generar_aleatorio'), pasando por el mismo evaluador 
+y con el mismo presupuesto de intentos.
+quí no hay selección ni reproducción de mejores padres; la aptitud 
+solamente la calculamos para ir guardando el mejor puntaje que nos vayamos encontrando por suerte
+"""
 import random
 from cromosoma import CromosomaGrafo
 from aptitud import calcular_aptitud
 
 
+
 def puntos_control(pop_size, presupuesto, elitismo=1):
-    """Mismos puntos (evaluaciones acumuladas) en que el AG cierra cada generación."""
+    # Mismos puntos (evaluaciones acumuladas) en que el AG cierra cada generación
     paso = pop_size - elitismo
     puntos = list(range(pop_size, presupuesto, paso))
     return set(puntos + [presupuesto])

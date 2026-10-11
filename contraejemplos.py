@@ -1,7 +1,11 @@
-"""Selección, explicación y reproducción de contraejemplos (fuera del ciclo evolutivo).
-
-Uso para reproducir uno:  python3 contraejemplos.py contraejemplos/caso_01.json
 """
+Script para revisar, explicar y volver a correr los contraejemplos 
+que encontramos, ya por fuera del algoritmo genético
+
+Para probar un caso específico desde la terminal, usa:
+python3 contraejemplos.py contraejemplos/caso_01.json
+"""
+
 import json
 import sys
 from pathlib import Path
@@ -18,16 +22,16 @@ REPETICIONES = 3
 def explicar(agente, resultado, ref):
     ruta = resultado["ruta"]
     if resultado["estado"] == "sin_solucion":
-        return f"{agente} dice que no hay ruta, pero la referencia sí encuentra una."
+        return f"{agente} dice que no hay ruta, pero la referencia sí encuentra una"
     if agente == "B1":
         return (f"BFS debe minimizar aristas: devolvió {ruta} con {len(ruta) - 1} aristas, "
                 f"pero el mínimo es {ref['distancia_minima_aristas']}.")
     return (f"{agente} debe minimizar el costo: devolvió {ruta} con costo "
-            f"{resultado['costo']}, pero el mínimo es {ref['costo_minimo']}.")
+            f"{resultado['costo']}, pero el mínimo es {ref['costo_minimo']}")
 
 
 def reproducir(caso, repeticiones=REPETICIONES):
-    """Vuelve a ejecutar el agente sobre el grafo guardado y compara."""
+    """Vuelve a ejecutar el agente sobre el grafo guardado y compara"""
     ok = True
     for _ in range(repeticiones):
         r = ejecutar(caso["objetivo"], caso["grafo"], caso["limite_expansiones"])
@@ -38,8 +42,8 @@ def reproducir(caso, repeticiones=REPETICIONES):
 
 
 def guardar_contraejemplos(hallazgos, limite):
-    """hallazgos: lista de (metodo, semilla, evaluador.hallazgos).
-    Por agente: el grafo con menos aristas del AG y el de la aleatoria (sin duplicados)."""
+    """hallazgos: lista de (metodo, semilla, evaluador.hallazgos)
+    Por agente: el grafo con menos aristas del AG y el de la aleatoria (sin duplicados)"""
     CARPETA.mkdir(exist_ok=True)
     for viejo in CARPETA.glob("caso_*.json"):
         viejo.unlink()

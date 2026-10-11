@@ -1,4 +1,4 @@
-"""Importa el paquete docente (v1.0.0) sin modificarlo, desde material_docente/."""
+# Importa el paquete docente (v1.0.0) sin modificarlo, desde material_docente/
 import sys
 from pathlib import Path
 

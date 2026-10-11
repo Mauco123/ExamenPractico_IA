@@ -1,5 +1,5 @@
 """Experimento principal: AG y búsqueda aleatoria, semillas 11, 22, 33, 44, 55,
-1000 evaluaciones por método y semilla. Escribe en resultados/ y contraejemplos/."""
+1000 evaluaciones por método y semilla. Escribe en resultados/ y contraejemplos/"""
 import csv
 import json
 import platform
