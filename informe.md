@@ -60,7 +60,7 @@ Esta falta de verdadera "comprensión" se alinea con el argumento de la *Habitac
 *   **Integrante 2 [Misael Bahena Vargas]:** Arquitectura del ciclo evolutivo y programación de operadores genéticos (selección, crossover y mutación). *Revisión cruzada:* Validó el mecanismo de control de semillas implementado por el Integrante 4.
 *   **Integrante 3 [Mauricio Rodríguez Gaytan]:** Diseño matemático de la función de aptitud (criterios de simplicidad y penalización) y clasificación de resultados del verificador. *Revisión cruzada:* Revisó las pruebas unitarias del Integrante 5.
 *   **Integrante 4 [Luis Angel Arteaga Castillo]:** Desarrollo del generador de línea base aleatoria, automatización del presupuesto estricto (1000 iteraciones) y gestión de la caché de evaluaciones. *Revisión cruzada:* Supervisó que los operadores del Integrante 2 no alteraran referencias en memoria de los cromosomas.
-*   **Integrante 5 [Yahir Rodríguez Zamora]:** Creación del 100% de las pruebas automatizadas del proyecto (`test_proyecto.py`), manejo de incidencias y excepciones aisladas, exportación de resultados CSV/JSON y extracción de contraejemplos minimizados. *Revisión cruzada:* Probó la tolerancia a fallos del adaptador del Integrante 1.
+*   **Integrante 5 [Yahir Rodríguez Zamora]:** Pruebas automatizadas del proyecto (`test_proyecto.py`), manejo de incidencias y excepciones aisladas, exportación de resultados CSV/JSON y extracción de contraejemplos minimizados. *Revisión cruzada:* Probó la tolerancia a fallos del adaptador del Integrante 1.
 
 **Recursos utilizados:**
 *   Python 3 Standard Library (`random`, `json`, `csv`).
