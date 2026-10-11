@@ -56,11 +56,11 @@ Esta falta de verdadera "comprensión" se alinea con el argumento de la *Habitac
 
 ## 7. Contribuciones, revisiones cruzadas y recursos
 
-*   **Christopher Karol Trejo Ganzo:** Diseño de la representación cromosómica de grafos, implementación del adaptador de comunicación con el paquete docente y el validador de entradas estructurales.
-*   **Misael Bahena Vargas:** Desarrollo central del proceso evolutivo, operadores genéticos (selección, cruzamiento y mutación) y diseño de la función de aptitud considerando simplicidad.
-*   **Mauricio Rodríguez Gaytan:** Clasificación semántica de resultados, validación real de los costos de ruta y desarrollo de la línea base (búsqueda aleatoria) y casos de prueba.
-*   **Luis Angel Arteaga Castillo:** Automatización del experimento mediante semillas fijas, exportación de registros CSV/JSON y extracción reproducible de la colección de contraejemplos.
-*   **Yahir Rodríguez Zamora:** ejecución de pruebas del proyecto (`test_proyecto.py`), gestión de incidencias (manejo de límites alcanzados), exportación de registros CSV/JSON y extracción reproducible de contraejemplos.
+*   **Integrante 1 [Cristopher Karol Trejo Ganzo]:** Desarrollo de la representación genotípica, validador estructural de grafos y el adaptador semántico. *Revisión cruzada:* Auditó la función de aptitud del Integrante 3 para asegurar compatibilidad de datos.
+*   **Integrante 2 [Misael Bahena Vargas]:** Arquitectura del ciclo evolutivo y programación de operadores genéticos (selección, crossover y mutación). *Revisión cruzada:* Validó el mecanismo de control de semillas implementado por el Integrante 4.
+*   **Integrante 3 [Mauricio Rodríguez Gaytan]:** Diseño matemático de la función de aptitud (criterios de simplicidad y penalización) y clasificación de resultados del verificador. *Revisión cruzada:* Revisó las pruebas unitarias del Integrante 5.
+*   **Integrante 4 [Luis Angel Arteaga Castillo]:** Desarrollo del generador de línea base aleatoria, automatización del presupuesto estricto (1000 iteraciones) y gestión de la caché de evaluaciones. *Revisión cruzada:* Supervisó que los operadores del Integrante 2 no alteraran referencias en memoria de los cromosomas.
+*   **Integrante 5 [Yahir Rodríguez Zamora]:** Creación del 100% de las pruebas automatizadas del proyecto (`test_proyecto.py`), manejo de incidencias y excepciones aisladas, exportación de resultados CSV/JSON y extracción de contraejemplos minimizados. *Revisión cruzada:* Probó la tolerancia a fallos del adaptador del Integrante 1.
 
 **Recursos utilizados:**
 *   Python 3 Standard Library (`random`, `json`, `csv`).
