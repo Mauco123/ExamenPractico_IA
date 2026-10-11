@@ -6,4 +6,4 @@ Consulta 2 (09/10/2026): Se solicitó apoyo conceptual para definir la estructur
 * **Arquitectura de archivos:** La IA revisó nuestro árbol de directorios y confirmó que la separación entre `cromosoma.py`, `evaluador.py` y `aptitud.py` era adecuada para aislar las responsabilidades.
 * **Integración:** Nos orientó conceptualmente sobre cómo el adaptador debe leer la estructura (diccionario) y pasarla a las funciones de `material_docente` sin modificar este último.
 * **Informe Final:** Se utilizó un esqueleto sugerido por la IA para estructurar el reporte de 1000 a 1500 palabras, garantizando que cubriéramos todos los puntos de la rúbrica (factibilidad, evolución, experimentación y contraejemplos). 
-* **Formato documentación del proyecto:** Se nos sugirió seguir un formato específico para la documentación del proyecto, lo que nos ayudó a organizar la información de manera clara y concisa.
+* **Formato documentación del proyecto:** Se nos sugirió seguir un formato específico para la documentación del proyecto, lo que nos ayudó a organizar la información de manera clara y concisa. Asi como darle un mejor aspecto a los archivos de tipo Markdown
