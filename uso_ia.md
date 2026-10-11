@@ -8,7 +8,7 @@ Sí hubo uso de IA, dentro de las modalidades permitidas las cuales fueron consu
 | :---- | :---- |
 | Herramienta | Claude |
 | Modelo | Somnet 4.6 |
-| Periodo de uso | 10/Octubre/2026 al 11/Octubre/2026 |
+| Periodo de uso | 9/Octubre/2026 al 11/Octubre/2026 |
 | Modalidad | Interfaz de chat |
 
 **Consultas realizadas**
