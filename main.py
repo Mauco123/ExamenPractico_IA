@@ -25,7 +25,7 @@ def guardar_json(ruta, datos):
     ruta.write_text(json.dumps(datos, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
-def una_ejecucion(metodo, semilla):
+def una_ejecucion(metodo, semilla, destino=RESULTADOS):
     ev = EvaluadorComun(MAX_EVALUACIONES, LIMITE_EXPANSIONES)
     t0 = time.perf_counter()
     if metodo == "genetico":
@@ -40,7 +40,7 @@ def una_ejecucion(metodo, semilla):
                 "mejor_grafo": mejor.a_formato_evaluador(),
                 "progreso": progreso,
                 "tiempo_s": round(time.perf_counter() - t0, 3)}
-    guardar_json(RESULTADOS / f"{metodo}_s{semilla}.json", registro)
+    guardar_json(destino / f"{metodo}_s{semilla}.json", registro)
     return registro, ev.hallazgos
 
 
@@ -96,4 +96,17 @@ def ejecutar_experimentos():
 
 
 if __name__ == "__main__":
-    ejecutar_experimentos()
+    import argparse
+    parser = argparse.ArgumentParser(description="Sin argumentos: comparación completa.")
+    parser.add_argument("--metodo", choices=["genetico", "aleatorio"],
+                        help="ejecuta solo este método (no toca resultados/ principales)")
+    parser.add_argument("--semilla", type=int, default=11)
+    args = parser.parse_args()
+    if args.metodo:
+        reg, _ = una_ejecucion(args.metodo, args.semilla, RESULTADOS / "individuales")
+        print(f"{args.metodo} semilla {args.semilla}: evaluaciones={reg['evaluaciones']} "
+              f"distintos={reg['grafos_distintos']} primer_hallazgo={reg['primer_hallazgo']} "
+              f"incidencias={reg['incidencias'] or 'ninguna'} tiempo={reg['tiempo_s']} s")
+        print(f"Registro: resultados/individuales/{args.metodo}_s{args.semilla}.json")
+    else:
+        ejecutar_experimentos()

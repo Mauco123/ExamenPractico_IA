@@ -87,5 +87,6 @@
     "no_optimo"
   ],
   "explicacion": "BFS debe minimizar aristas: devolvió [0, 4, 2, 5] con 3 aristas, pero el mínimo es 2.",
-  "reproducido": true
+  "reproducido": true,
+  "repeticiones_reproduccion": 3
 }

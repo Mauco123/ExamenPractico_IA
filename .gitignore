@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 resultados_experimento.json
 contraejemplos.json
+resultados/individuales/

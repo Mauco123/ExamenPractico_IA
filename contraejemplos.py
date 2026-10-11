@@ -68,6 +68,7 @@ def guardar_contraejemplos(hallazgos, limite):
                         "discrepancias": clasificar(agente, grafo, r),
                         "explicacion": explicar(agente, r, ref)}
                 caso["reproducido"] = reproducir(caso)
+                caso["repeticiones_reproduccion"] = REPETICIONES  # fuera del presupuesto
                 (CARPETA / f"{caso['id']}.json").write_text(
                     json.dumps(caso, indent=2, ensure_ascii=False), encoding="utf-8")
                 casos.append(caso)
@@ -79,7 +80,10 @@ def guardar_contraejemplos(hallazgos, limite):
                f"| {c['semilla']} | {c['numero_evaluacion']} | {'sí' if c['reproducido'] else 'NO'} |"
                for c in casos[:MAX_CASOS]]
     faltan = [a for a in AGENTES if a not in {c["objetivo"] for c in casos}]
-    lineas += ["", "Sin contraejemplo: " + (", ".join(faltan) or "ninguno")]
+    lineas += ["", "Sin contraejemplo: " + (", ".join(faltan) or "ninguno"),
+               "", f"Comprobaciones posteriores (fuera del presupuesto de 1000): "
+               f"{len(casos[:MAX_CASOS])} casos x {REPETICIONES} repeticiones = "
+               f"{len(casos[:MAX_CASOS]) * REPETICIONES} ejecuciones de reproducción."]
     (CARPETA / "INDICE.md").write_text("\n".join(lineas) + "\n", encoding="utf-8")
     return casos[:MAX_CASOS]
 

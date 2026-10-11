@@ -85,5 +85,6 @@
     "no_optimo"
   ],
   "explicacion": "U1 debe minimizar el costo: devolvió [0, 5] con costo 9, pero el mínimo es 8.",
-  "reproducido": true
+  "reproducido": true,
+  "repeticiones_reproduccion": 3
 }

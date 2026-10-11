@@ -1,7 +1,7 @@
 metodo,objetivo,ejecuciones_con_hallazgo,mediana_evals_primer_hallazgo_solo_exitos,ejecuciones_sin_hallazgo,grafos_distintos_total,incidencias_total,tiempo_total_s
-genetico,B1,5/5,26,0,4994,0,1.537
-genetico,U1,5/5,5,0,4994,0,1.537
-genetico,A1,5/5,5,0,4994,0,1.537
-aleatorio,B1,5/5,26,0,4841,0,1.369
-aleatorio,U1,5/5,5,0,4841,0,1.369
-aleatorio,A1,5/5,5,0,4841,0,1.369
+genetico,B1,5/5,26,0,4994,0,1.614
+genetico,U1,5/5,5,0,4994,0,1.614
+genetico,A1,5/5,5,0,4994,0,1.614
+aleatorio,B1,5/5,26,0,4841,0,1.47
+aleatorio,U1,5/5,5,0,4841,0,1.47
+aleatorio,A1,5/5,5,0,4841,0,1.47
