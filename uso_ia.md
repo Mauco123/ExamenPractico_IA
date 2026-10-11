@@ -1,3 +1,9 @@
 Consulta 1 (09/10/2026): Se utilizó IA generativa (Gemini) para solicitar orientación estructural sobre la arquitectura del proyecto y la distribución de módulos. No se generó código fuente, solo se utilizó para definir los componentes del cromosoma y la lógica general de la función de aptitud.
 
 Consulta 2 (09/10/2026): Se solicitó apoyo conceptual para definir la estructura interna del cromosoma (representación) y las reglas de reparación. La IA sugirió una representación basada en lista de aristas y estableció la diferencia lógica entre reparar violaciones estructurales (costos $\le 0$, nodos fuera de rango, aristas duplicadas) y conservar grafos sin solución (los cuales son válidos para encontrar defectos). El código de estas estructuras fue implementado por el equipo.
+
+## Partes Revisadas y Observaciones Relevantes (Claude Code)
+* **Arquitectura de archivos:** La IA revisó nuestro árbol de directorios y confirmó que la separación entre `cromosoma.py`, `evaluador.py` y `aptitud.py` era adecuada para aislar las responsabilidades.
+* **Integración:** Nos orientó conceptualmente sobre cómo el adaptador debe leer la estructura (diccionario) y pasarla a las funciones de `material_docente` sin modificar este último.
+* **Informe Final:** Se utilizó un esqueleto sugerido por la IA para estructurar el reporte de 1000 a 1500 palabras, garantizando que cubriéramos todos los puntos de la rúbrica (factibilidad, evolución, experimentación y contraejemplos). 
+* **Formato documentación del proyecto:** Se nos sugirió seguir un formato específico para la documentación del proyecto, lo que nos ayudó a organizar la información de manera clara y concisa.
