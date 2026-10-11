@@ -68,3 +68,18 @@ El paquete docente busqueda versión 1.0.0, sin modificar va en la carpeta mater
 **Tiempo de ejecución**
 * python3 main.py -> (10 ejecuciones + contraejemplos) en 3.1 s
 * Pruebas  en 1.3 s
+
+---
+**Pruebas**
+
+pruebas/test_proyecto.py usa datos controlados, no son los contraejemplos descubiertos.
+
+* Formato -> adaptador ida y vuelta, el paquete docente acepta los grafos despues el validador rechaza lazos, costos 0 y 10, duplicados, booleanos y nodos fuera de rango, un grafo sin ruta es válido
+* Operadores -> el cruce solo usa aristas de los padres, cruce y mutación mantienen el dominio
+* Clasificacion -> sin ruta, rutas alternativas de igual calidad, costo incorrecto, ruta inválida, BFS por aristas y UCS por costo, límite no cuenta como contraejemplo
+* Presupuesto -> repetidos consumen presupuesto, ambos métodos usan exactamente 1000 evaluaciones ,misma semilla misma ejecución
+
+Evidencia: pruebas/evidencia_ejecucion.txt.\
+Fallos pendientes: ninguno.
+
+Las ejecuciones con --metodo en resultados/individuales/ son de prueba y no forman parte de la comparación principal.
