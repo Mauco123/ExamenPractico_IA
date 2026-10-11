@@ -107,5 +107,5 @@ Medido en el equipo del equipo:
 
 | Tarea | Tiempo |
 |---|---|
-| `python3 main.py` (10 ejecuciones + contraejemplos) | 7.2 s |
+| `python3 main.py` (10 ejecuciones + contraejemplos) | 3.1 s |
 | Pruebas | 1.3 s |
