@@ -19,15 +19,24 @@ aptitud.py\
 algoritmo_genetico.py\
 busqueda_aleatoria.py\
 main.py\
-contraejemplo.py\
+contraejemplos.py\
+uso_ia.md\
+informe.md
 pruebas/\
-*init*.py\
+init.py\
 evidencia_ejecucion.txt\
 test_proyecto.py\
 resultados/
 resultado.json\
 contraejemplos/
 casos.json
+material_docente/busqueda/\
+_init_.py
+_main_.py
+objetivos
+
+
+
 
 ---
 **Comandos para ejecución de pruebas**
@@ -42,7 +51,7 @@ casos.json
 
 ---
 **Dónde colocar el paquete docente**\
-El paquete docente busqueda va en la carpeta material_docente/busqueda/
+El paquete docente busqueda versión 1.0.0, sin modificar va en la carpeta material_docente/busqueda/ 
 
 ---
 **Dónde se guardan los resultados**
