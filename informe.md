@@ -45,7 +45,7 @@ Como advirtió John McCarthy, dotar a una máquina de un comportamiento formal n
 *   **Misael Bahena Vargas:** Desarrollo central del proceso evolutivo, operadores genéticos (selección, cruzamiento y mutación) y diseño de la función de aptitud considerando simplicidad.
 *   **Mauricio Rodríguez Gaytan:** Clasificación semántica de resultados, validación real de los costos de ruta y desarrollo de la línea base (búsqueda aleatoria) y casos de prueba.
 *   **Luis Angel Arteaga Castillo:** Automatización del experimento mediante semillas fijas, exportación de registros CSV/JSON y extracción reproducible de la colección de contraejemplos.
-**Yahir Rodríguez Zamora:** ejecución de pruebas del proyecto (`test_proyecto.py`), gestión de incidencias (manejo de límites alcanzados), exportación de registros CSV/JSON y extracción reproducible de contraejemplos.
+*   **Yahir Rodríguez Zamora:** ejecución de pruebas del proyecto (`test_proyecto.py`), gestión de incidencias (manejo de límites alcanzados), exportación de registros CSV/JSON y extracción reproducible de contraejemplos.
 
 **Recursos utilizados:**
 *   Python 3 Standard Library (`random`, `json`, `csv`).
