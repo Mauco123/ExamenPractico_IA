@@ -10,7 +10,7 @@
 
 * Python 3.10 o superior. Probado con Python 3.14.4.
 ---
-**Estructura del proyecto**
+**Estructura del proyecto**\
 cromosoma.py\
 docente.py\
 verificacion.py\
