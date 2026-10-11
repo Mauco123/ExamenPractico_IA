@@ -8,7 +8,7 @@ META = 5
 COSTO_MIN = 1
 COSTO_MAX = 9
 
-# Todos los pares dirigidos válidos (u, v) con u != v.
+# Todos los pares dirigidos válidos (u, v) con u != v
 PARES_VALIDOS = list(permutations(range(N_NODOS), 2))
 MAX_ARISTAS = len(PARES_VALIDOS)  # 30
 
@@ -19,7 +19,8 @@ class CromosomaGrafo:
         self.aristas = {}
 
     def generar_aleatorio(self):
-        """Llena self.aristas con un grafo aleatorio válido."""
+
+        #Llena self.aristas con un grafo aleatorio válido
         self.aristas.clear()
         k = random.randint(0, MAX_ARISTAS)
         seleccion = random.sample(PARES_VALIDOS, k)
@@ -28,7 +29,8 @@ class CromosomaGrafo:
         return self
 
     def a_formato_evaluador(self):
-        """Traduce el diccionario interno al formato JSON del paquete docente."""
+
+        #Traduce el diccionario interno al formato JSON del paquete docente
         lista_aristas = [[u, v, costo] for (u, v), costo in sorted(self.aristas.items())]
         return {
             "n": N_NODOS,
@@ -38,7 +40,8 @@ class CromosomaGrafo:
         }
 
     def clave(self):
-        """Identidad del grafo: sirve para detectar duplicados y para la caché."""
+
+        #Identidad del grafo: sirve para detectar duplicados y para la caché
         return tuple(sorted(self.aristas.items()))
 
     def copia(self):
@@ -48,7 +51,8 @@ class CromosomaGrafo:
 
     @classmethod
     def desde_grafo(cls, grafo):
-        """Inverso de a_formato_evaluador (para reproducir contraejemplos)."""
+
+       #Inverso de a_formato_evaluador (para reproducir contraejemplos)
         validar_estructura(grafo)
         c = cls()
         c.aristas = {(u, v): w for u, v, w in grafo["aristas"]}
@@ -62,7 +66,8 @@ class CromosomaGrafo:
 
 
 def validar_estructura(grafo):
-    """Validador estructural propio. Lanza ValueError si el grafo sale del dominio."""
+
+    #Validador estructural propio. Lanza ValueError si el grafo sale del dominio.
     if not isinstance(grafo, dict) or set(grafo) != {"n", "inicio", "meta", "aristas"}:
         raise ValueError("se requieren exactamente n, inicio, meta y aristas")
     if (grafo["n"], grafo["inicio"], grafo["meta"]) != (N_NODOS, INICIO, META):

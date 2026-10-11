@@ -1,12 +1,15 @@
-"""Función de aptitud sobre los tres agentes (mayor es mejor).
+"""
+Función de aptitud (fitness) para evaluar a los agentes (B1, U1, A1)
+Entre más alto, mejor el grafo.
 
-Niveles (nunca se traslapan porque el bono de simplicidad vale 0..30):
-  1000 * k + simplicidad   k = agentes (B1, U1, A1) con contraejemplo confirmado, k >= 1
-  100 + 10 * rutas + simp. sin hallazgo, pero hay ruta 0->5 (rutas = caminos simples, tope 10)
-  simplicidad              sin hallazgo y sin ruta 0->5
-  0                        error de nuestro propio código
-simplicidad = 30 - número de aristas (criterio secundario: preferir grafos pequeños).
-limite / error / desacuerdo no suman: no son evidencia de defecto.
+La dividimos por niveles fijos para que los puntajes no se encimen, 
+usando la simplicidad (30 - número de aristas) como un pequeño bono secundario:
+  - 1000 * k + simplicidad: Si encontramos un contraejemplo confirmado en 'k' agentes (k >= 1)
+  - 100 + (10 * rutas) + simplicidad: Si no hubo error, pero al menos el grafo tiene caminos válidos de inicio a meta (hasta 10 rutas)
+  - simplicidad: Si no hay hallazgos ni ruta válida; aquí solo gana puntos tener un grafo chiquito y simple
+  - 0: Si nuestro propio código tronó o falló
+
+cuidado: Los límites alcanzados, errores o desacuerdos raros no suman puntos porque no demuestran un fallo real de los agentes
 """
 from cromosoma import INICIO, META, MAX_ARISTAS
 

@@ -1,4 +1,4 @@
-"""Verificación semántica propia (independiente del verificador docente)."""
+# Verificación semántica propia (independiente del verificador docente)
 from collections import deque
 from heapq import heappush, heappop
 
@@ -6,7 +6,7 @@ from cromosoma import N_NODOS, INICIO, META
 
 
 def referencia_propia(grafo):
-    """BFS (mínimo de aristas) y Dijkstra (mínimo costo) de INICIO a META."""
+    #BFS (mínimo de aristas) y Dijkstra (mínimo costo) de INICIO a META
     ady = {u: [] for u in range(N_NODOS)}
     for u, v, w in grafo["aristas"]:
         ady[u].append((v, w))
@@ -35,8 +35,10 @@ def referencia_propia(grafo):
 
 
 def clasificar(agente, grafo, resultado):
+
     """Devuelve la lista ordenada de discrepancias que encontramos nosotros.
-    Solo para estados 'solucion' y 'sin_solucion' (limite/error no se juzgan)."""
+    Solo para estados 'solucion' y 'sin_solucion' (limite/error no se juzgan)"""
+    
     ref = referencia_propia(grafo)
     pesos = {(u, v): w for u, v, w in grafo["aristas"]}
     fallos = []
