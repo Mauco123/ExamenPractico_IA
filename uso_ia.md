@@ -1,4 +1,4 @@
-**Declaración de uso de IA para Examen Parcial**
+## Declaración de uso de IA para Examen Parcial
 
 Sí hubo uso de IA, dentro de las modalidades permitidas las cuales fueron consultas conceptuales, orientación general y revisión del trabajo que revisó el equipo.
 
