@@ -35,8 +35,9 @@ _init_.py
 _main_.py
 objetivos
 
-
-
+---
+**Dónde colocar el paquete docente**\
+El paquete docente busqueda sin modificar va en la carpeta material_docente/busqueda/ 
 
 ---
 **Comandos para ejecución de pruebas**
@@ -48,26 +49,6 @@ objetivos
 * Comparación principal: semillas 11, 22, 33, 44 y 55 en ambos métodos -> python3 main.py
 
 * Evaluar un contraejemplo fuera del ciclo evolutivo -> python3 contraejemplos.py contraejemplos/caso_01.json
-
----
-**Dónde colocar el paquete docente**\
-El paquete docente busqueda versión 1.0.0, sin modificar va en la carpeta material_docente/busqueda/ 
-
----
-**Dónde se guardan los resultados**
-
-* resultados/configuracion.json -> Semillas, presupuesto, límite de expansiones, tamaño de población, versiones
-* resultados/_s.json -> Registro de las 10 ejecuciones principales
-* resultados/progreso.csv -> Progreso de las 10 ejecuciones
-* resultados/resumen.csv -> Comparación por método y agente
-* contraejemplos/ ->  6 casos de prueba
-* resultados/individuales/ ->  Ejecuciones sueltas con --metodo
-
----
-
-**Tiempo de ejecución**
-* python3 main.py -> (10 ejecuciones + contraejemplos) en 3.1 s
-* Pruebas  en 1.3 s
 
 ---
 **Pruebas**
@@ -83,3 +64,24 @@ Evidencia: pruebas/evidencia_ejecucion.txt.\
 Fallos pendientes: ninguno.
 
 Las ejecuciones con --metodo en resultados/individuales/ son de prueba y no forman parte de la comparación principal.
+
+---
+
+**Tiempo de ejecución**
+* python3 main.py -> (10 ejecuciones + contraejemplos) en 3.1 s
+* Pruebas  en 1.3 s
+
+---
+**Dónde se guardan los resultados**
+
+* resultados/configuracion.json -> Semillas, presupuesto, límite de expansiones, tamaño de población, versiones
+* resultados/_s.json -> Registro de las 10 ejecuciones principales
+* resultados/progreso.csv -> Progreso de las 10 ejecuciones
+* resultados/resumen.csv -> Comparación por método y agente
+* contraejemplos/ ->  6 casos de prueba
+* resultados/individuales/ ->  Ejecuciones sueltas con --metodo
+
+
+
+
+
