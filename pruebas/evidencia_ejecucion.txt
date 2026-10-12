@@ -13,6 +13,6 @@ test_repetidos_consumen_presupuesto (pruebas.test_proyecto.Presupuesto.test_repe
 test_semilla_fija_reproduce (pruebas.test_proyecto.Presupuesto.test_semilla_fija_reproduce) ... ok
 
 ----------------------------------------------------------------------
-Ran 13 tests in 1.299s
+Ran 13 tests in 1.189s
 
 OK

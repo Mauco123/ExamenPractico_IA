@@ -90,7 +90,7 @@
   "discrepancias": [
     "no_optimo"
   ],
-  "explicacion": "U1 debe minimizar el costo: devolvió [0, 3, 5] con costo 11, pero el mínimo es 9.",
+  "explicacion": "U1 debe minimizar el costo: devolvió [0, 3, 5] con costo 11, pero el mínimo es 9",
   "reproducido": true,
   "repeticiones_reproduccion": 3
 }
