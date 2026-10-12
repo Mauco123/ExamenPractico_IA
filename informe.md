@@ -38,12 +38,12 @@ El experimento evaluó el algoritmo genético frente a una línea base de búsqu
 
 | Método | Objetivo | Ejec. con hallazgo | Mediana evals (éxitos) | Ejec. sin hallazgo | Grafos distintos | Incidencias | Tiempo total (s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Genético | `B1` | 5/5 | 26 | 0 | 4,994 | 0 | 1.614 |
-| Genético | `U1` | 5/5 | 5 | 0 | 4,994 | 0 | 1.614 |
-| Genético | `A1` | 5/5 | 5 | 0 | 4,994 | 0 | 1.614 |
-| Aleatorio | `B1` | 5/5 | 26 | 0 | 4,841 | 0 | 1.470 |
-| Aleatorio | `U1` | 5/5 | 5 | 0 | 4,841 | 0 | 1.470 |
-| Aleatorio | `A1` | 5/5 | 5 | 0 | 4,841 | 0 | 1.470 |
+| Genético | `B1` | 5/5 | 26 | 0 | 4,994 | 0 | 1.526 |
+| Genético | `U1` | 5/5 | 5 | 0 | 4,994 | 0 | 1.526 |
+| Genético | `A1` | 5/5 | 5 | 0 | 4,994 | 0 | 1.526 |
+| Aleatorio | `B1` | 5/5 | 26 | 0 | 4,841 | 0 | 1.358 |
+| Aleatorio | `U1` | 5/5 | 5 | 0 | 4,841 | 0 | 1.358 |
+| Aleatorio | `A1` | 5/5 | 5 | 0 | 4,841 | 0 | 1.358 |
 
 > **Nota metodológica y limitaciones:** Ambas estrategias comparten el flujo estocástico inicial durante las primeras cincuenta evaluaciones al invocar globalmente la misma semilla y generación base, lo que explica la coincidencia en el número de evaluaciones del primer hallazgo en 4 de las 5 semillas. Los valores de grafos distintos corresponden a la suma acumulada a lo largo de las 5 ejecuciones. Las cero incidencias se deben a que, con grafos de 6 nodos, el máximo de expansiones observado en nuestros registros fue 5, manteniéndose muy por debajo del límite operativo de 100.
 > El algoritmo genético alcanza una aptitud final por semilla de 3,015 a 3,020 puntos con 10 a 15 aristas, frente a los 3,013 a 3,022 puntos de la búsqueda aleatoria con 8 a 17 aristas. La causa es que el cruzamiento muestrea `k` entre los límites de los padres, impidiendo reducir el tamaño por debajo del progenitor menor, y únicamente la mutación de eliminación reduce el tamaño en un 6.7%, mientras que la búsqueda aleatoria sortea `k` de forma uniforme entre 0 y 30.
