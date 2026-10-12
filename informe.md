@@ -2,7 +2,7 @@
 
 ---
 
-## §1 Representación del dominio y validación de candidatos
+## 1. Representación del dominio y validación de candidatos
 
 La formulación de la generación de pruebas como un problema de optimización se estructuró mediante una representación cromosómica basada en grafos dirigidos sintéticos. El dominio de búsqueda fija el nodo de inicio en 0 y la meta en 5. El genotipo de cada individuo almacena las aristas en un diccionario cuyas claves corresponden a pares dirigidos de nodos en formato de tupla y cuyos valores son costos numéricos generados del 1 al 9, con un límite máximo de 30 aristas. La tupla de tres elementos que incluye origen, destino y costo se reserva exclusivamente para la interfaz externa de comunicación con el evaluador.
 
@@ -10,7 +10,7 @@ Los operadores de variación producen individuos válidos por diseño, un compor
 
 ---
 
-## §2 Operadores genéticos y proceso evolutivo
+## 2. Operadores genéticos y proceso evolutivo
 
 El proceso evolutivo opera con una población de 50 individuos y se rige por una selección por torneo con un parámetro `k` de 3, donde los empates de aptitud se resuelven mediante el orden de índices derivado del muestreo estocástico previo. El operador de cruzamiento combina las colecciones de aristas de ambos progenitores sin alterar las constantes de inicio y meta, seleccionando un número `k` de aristas acotado entre los límites del padre menor y el mayor. Para las aristas compartidas, la resolución de conflictos de costos se realiza asignando una probabilidad del 50% de heredar el peso de cualquiera de los dos padres (`algoritmo_genetico.py:45`).
 
@@ -18,7 +18,7 @@ La mutación se aplica con una probabilidad del 20% (`prob_mutacion = 0.2`), eli
 
 ---
 
-## §3 Función de aptitud y evaluación semántica
+## 3. Función de aptitud y evaluación semántica
 
 La aptitud se estructura en un esquema jerárquico de tres niveles orientados a premiar el descubrimiento de fallos y guiar la optimización:
 
@@ -32,7 +32,7 @@ La evaluación semántica verifica que la ruta propuesta comience y termine en l
 
 ---
 
-## §4 Comparación experimental
+## 4. Comparación experimental
 
 El experimento evaluó el algoritmo genético frente a una línea base de búsqueda aleatoria utilizando un presupuesto estricto de 1,000 evaluaciones y 5 semillas controladas de 11, 22, 33, 44 y 55.
 
@@ -50,7 +50,7 @@ El experimento evaluó el algoritmo genético frente a una línea base de búsqu
 
 ---
 
-## §5 Contraejemplos representativos
+## 5. Contraejemplos representativos
 
 Los contraejemplos almacenados en la carpeta `contraejemplos/` documentan los incumplimientos semánticos capturados por el sistema:
 
@@ -67,7 +67,7 @@ Un caso ilustrativo es el `caso_01` para `B1`, donde el número mínimo de arist
 
 ---
 
-## §6 Reflexión conceptual y limitaciones
+## 6. Reflexión conceptual y limitaciones
 
 El proyecto opera sobre una distinción fundamental entre dos espacios de búsqueda: por un lado, el meta-espacio de topologías y costos explorado por el algoritmo evolutivo, donde cada grafo constituye un candidato evaluado mediante una función objetivo y manipulado por operadores estructurales; por el otro, el espacio de estados en el que opera cada agente, buscando una secuencia de nodos sobre una topología fija que no puede modificar.
 
@@ -77,7 +77,7 @@ El equipo seleccionó el enfoque evolutivo debido a que no requiere un modelo an
 
 ---
 
-## §7 Contribuciones y recursos
+## 7. Contribuciones y recursos
 
 
 * **Christopher Karol Trejo Ganzo:** Estructura cromosómica en `cromosoma.py`, validación y adaptador docente. Revisó la integración de Misael.
