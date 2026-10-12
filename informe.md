@@ -21,21 +21,14 @@ El experimento principal consistió en ejecutar tanto el algoritmo genético com
 
 Tabla de Resultados:
 
-Método    | Objetivo | Ejec. con hallazgo | Mediana evals (éxitos) | Ejec. sin hallazgo | Grafos distintos | Incidencias | Tiempo total (s)
-
--------------------------------------------------------------------------------------------------------------------------------------------
-
-Genético  | B1       | 5/5                | 26                     | 0                  | 4994             | 0           | 1.614
-
-Genético  | U1       | 5/5                | 5                      | 0                  | 4994             | 0           | 1.614
-
-Genético  | A1       | 5/5                | 5                      | 0                  | 4994             | 0           | 1.614
-
-Aleatorio | B1       | 5/5                | 26                     | 0                  | 4841             | 0           | 1.470
-
-Aleatorio | U1       | 5/5                | 5                      | 0                  | 4841             | 0           | 1.470
-
-Aleatorio | A1       | 5/5                | 5                      | 0                  | 4841             | 0           | 1.470
+| Método | Objetivo | Ejec. con hallazgo | Mediana evals (éxitos) | Ejec. sin hallazgo | Grafos distintos | Incidencias | Tiempo total (s) |
+|---|---|---|---|---|---|---|---|
+| Genético | B1 | 5/5 | 26 | 0 | 4994 | 0 | 1.614 |
+| Genético | U1 | 5/5 | 5 | 0 | 4994 | 0 | 1.614 |
+| Genético | A1 | 5/5 | 5 | 0 | 4994 | 0 | 1.614 |
+| Aleatorio | B1 | 5/5 | 26 | 0 | 4841 | 0 | 1.470 |
+| Aleatorio | U1 | 5/5 | 5 | 0 | 4841 | 0 | 1.470 |
+| Aleatorio | A1 | 5/5 | 5 | 0 | 4841 | 0 | 1.470 |
 
 
 Análisis:
