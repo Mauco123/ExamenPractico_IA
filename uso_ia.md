@@ -118,5 +118,3 @@ Ninguna indicación de la IA se incorporó sin comprobación. Las verificaciones
 - Integración: Nos orientó conceptualmente sobre cómo el adaptador debe leer la estructura (diccionario) y pasarla a las funciones de material_docente sin modificar este último.
 
 - Informe Final: Se utilizó un esqueleto sugerido por la IA para estructurar el reporte de 1000 a 1500 palabras, garantizando que cubriéramos todos los puntos de la rúbrica (factibilidad, evolución, experimentación y contraejemplos). 
-
-- Formato documentación del proyecto: Se nos sugirió seguir un formato específico para la documentación del proyecto, lo que nos ayudó a organizar la información de manera clara y concisa. Así como darle un mejor aspecto a los archivos de tipo Markdown dándonos la manera en que los archivos de este tipo se organizan y como aplicar colores, negritas, etc. para que tenga una mejor estética.
