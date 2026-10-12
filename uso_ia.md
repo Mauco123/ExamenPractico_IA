@@ -29,23 +29,16 @@ Modalidad        | Interfaz de chat
 
 **Partes del trabajo revisadas por el agente**
 
-
-Parte                                  | Archivo                 | Qué se revisó
-
-
-Representación y validación del dom.   | cromosoma.py            | Que el adaptador al formato del paquete docente y el validador cubrieran lazos, costos fuera de [1, 9], duplicados y nodos fuera de rango.
-
-Verificación propia                    | verificacion.py         | Que el criterio de optimalidad fuera el correcto por agente: BFS por número de aristas, U1 y A1 por costo.
-
-Contabilidad del presupuesto           | evaluador.py            | Que la caché y los grafos repetidos no alterarán el conteo de las 1000 evaluaciones.
-
-Función de aptitud                     | aptitud.py              | Separación de niveles y que limite, error y desacuerdo no se premiaran como hallazgos.
-
-Operadores evolutivos                  | algoritmo_genetico.py   | Que cruce y mutación preservaran el dominio y que el manejo de duplicados no sesgara la búsqueda.
-
-Comparabilidad de la línea base        | busqueda_aleatoria.py   | Que los puntos de control coincidieran con los del AG y que ambos métodos usaran el mismo evaluador y presupuesto.
-
-Pruebas                                | pruebas/test_proyecto.py| Cobertura de casos límite y que las pruebas no dependieran de los contraejemplos descubiertos.
+| Parte | Archivo | Qué se revisó |
+|---|---|---|
+| Representación y validación del dom. | cromosoma.py | Que el adaptador al formato del paquete docente y el validador cubrieran lazos, costos fuera de [1, 9], duplicados y nodos fuera de rango. |
+| Verificación propia | verificacion.py | Que el criterio de optimalidad fuera el correcto por agente: BFS por número de aristas, U1 y A1 por costo. |
+| Contabilidad del presupuesto | evaluador.py | Que la caché y los grafos repetidos no alterarán el conteo de las 1000 evaluaciones. |
+| Función de aptitud | aptitud.py | Separación de niveles y que limite, error y desacuerdo no se premiaran como hallazgos. |
+| Operadores evolutivos | algoritmo_genetico.py | Que cruce y mutación preservaran el dominio y que el manejo de duplicados no sesgara la búsqueda. |
+| Comparabilidad de la línea base | busqueda_aleatoria.py | Que los puntos de control coincidieran con los del AG y que ambos métodos usaran el mismo evaluador y presupuesto. |
+| Pruebas | pruebas/test_proyecto.py| Cobertura de casos límite y que las pruebas no dependieran de los contraejemplos descubiertos. |
+| Edición y Formato | (Documentación) | El asistente de IA le dio formato de tabla Markdown a este texto basándose en la información proporcionada. |
 
 ---
 
@@ -89,25 +82,18 @@ Ninguna indicación de la IA se incorporó sin comprobación. Las verificaciones
 
 **Registro acotado de consultas**
 
-  | Fecha aprox. | Tipo       | Tema de la consulta                                                                                  | Qué se hizo con la respuesta
-
-1 | 9/10/2026    | Conceptual | Diferencia entre el criterio de optimalidad de BFS (número de aristas) y U1/A* (costo acumulado).    | Se contrastó con el paquete docente y se usó para referencia_propia.
-
-2 | 9/10/2026    | Conceptual | Condiciones bajo las cuales A* deja de ser óptimo (heurística no admisible o inconsistente).         | Sirvió para entender qué tipo de grafo podía exponer un defecto en A1.
-
-3 | 9/10/2026    | Orientación| Alternativas de representación de un grafo dirigido con costos como cromosoma de longitud variable.  | El equipo eligió el diccionario {(u,v): costo} e implementó cromosoma.py.
-
-4 | 10/10/2026   | Orientación| Cómo estructurar una función de aptitud con objetivo principal y criterio de desempate.              | Se adoptó el esquema por niveles con bono de simplicidad acotado a 30.
-
-5 | 10/10/2026   | Orientación| Qué hace comparable una línea base aleatoria frente a un algoritmo genético bajo el mismo pres.      | Se definieron los puntos de control comunes y el evaluador compartido.
-
-6 | 10/10/2026   | Revisión   | Revisión de evaluador.py: contabilidad del presupuesto con caché y grafos repetidos.                 | Observación 1 de la sección 5; se añadió test_repetidos_consumen_presupuesto.
-
-7 | 11/10/2026   | Revisión   | Revisión de verificacion.py: qué estados deben considerarse evidencia de defecto.                    | Observación 2; se añadió test_limite_no_es_contraejemplo.
-
-8 | 11/10/2026   | Revisión   | Revisión de algoritmo_genetico.py: si cruce y mutación pueden salirse del dominio válido.            | Observación 6 / preservación de dominio; se añadió test_cruce_y_mutacion...
-
-9 | 11/10/2026   | Revisión   | Revisión de la cobertura de las pruebas: casos límite faltantes.                                     | Se añadieron los casos de rutas alternativas y de grafo sin ruta.
+| # | Fecha aprox. | Tipo | Tema de la consulta | Qué se hizo con la respuesta |
+|---|---|---|---|---|
+| 1 | 9/10/2026 | Conceptual | Diferencia entre el criterio de optimalidad de BFS (número de aristas) y U1/A* (costo acumulado). | Se contrastó con el paquete docente y se usó para referencia_propia. |
+| 2 | 9/10/2026 | Conceptual | Condiciones bajo las cuales A* deja de ser óptimo (heurística no admisible o inconsistente). | Sirvió para entender qué tipo de grafo podía exponer un defecto en A1. |
+| 3 | 9/10/2026 | Orientación | Alternativas de representación de un grafo dirigido con costos como cromosoma de longitud variable. | El equipo eligió el diccionario {(u,v): costo} e implementó cromosoma.py. |
+| 4 | 10/10/2026 | Orientación | Cómo estructurar una función de aptitud con objetivo principal y criterio de desempate. | Se adoptó el esquema por niveles con bono de simplicidad acotado a 30. |
+| 5 | 10/10/2026 | Orientación | Qué hace comparable una línea base aleatoria frente a un algoritmo genético bajo el mismo pres. | Se definieron los puntos de control comunes y el evaluador compartido. |
+| 6 | 10/10/2026 | Revisión | Revisión de evaluador.py: contabilidad del presupuesto con caché y grafos repetidos. | Observación 1 de la sección 5; se añadió test_repetidos_consumen_presupuesto. |
+| 7 | 11/10/2026 | Revisión | Revisión de verificacion.py: qué estados deben considerarse evidencia de defecto. | Observación 2; se añadió test_limite_no_es_contraejemplo. |
+| 8 | 11/10/2026 | Revisión | Revisión de algoritmo_genetico.py: si cruce y mutación pueden salirse del dominio válido. | Observación 6 / preservación de dominio; se añadió test_cruce_y_mutacion... |
+| 9 | 11/10/2026 | Revisión | Revisión de la cobertura de las pruebas: casos límite faltantes. | Se añadieron los casos de rutas alternativas y de grafo sin ruta. |
+| 10 | 11/10/2026 | Edición y Formato | (Documentación) | El asistente de IA le dio formato de tabla Markdown a este texto basándose en la información proporcionada. |
 
 ---
 
